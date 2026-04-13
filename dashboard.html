@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DexVault - Portfolio Dashboard</title>
+  <link rel="stylesheet" href="app.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <div class="logo-circle">D</div>
+      <span>DexVault</span>
+    </div>
+    <nav class="sidebar-nav">
+      <a href="dashboard.html" class="active">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg>
+        Dashboard
+        <span class="nav-dot"></span>
+      </a>
+      <a href="collection.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        Collection
+      </a>
+      <a href="marketplace.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+        Marketplace
+      </a>
+      <a href="scan.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg>
+        Scan Card
+      </a>
+      <a href="prices.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+        Prices
+      </a>
+      <a href="wishlist.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+        Wishlist
+      </a>
+      <a href="alerts.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg>
+        Alerts
+      </a>
+      <a href="grading.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        Grading
+      </a>
+      <a href="profile.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        Profile
+      </a>
+    </nav>
+    <div class="sidebar-bottom">
+      <a href="#">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+        Collapse
+      </a>
+    </div>
+  </aside>
+
+  <!-- Main -->
+  <div class="main-wrapper">
+    <!-- Top Bar -->
+    <header class="topbar">
+      <div class="search-bar">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" placeholder="Search cards, sets, users...">
+      </div>
+      <div class="topbar-right">
+        <div class="topbar-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+        </div>
+        <div class="topbar-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg>
+          <span class="notif-dot"></span>
+        </div>
+        <div class="user-avatar">JD</div>
+      </div>
+    </header>
+
+    <!-- Content -->
+    <main class="content">
+      <!-- Page Header -->
+      <div class="page-header">
+        <h1>Portfolio Dashboard</h1>
+        <p>Welcome back! Your collection is up today &#x1F4C8;</p>
+      </div>
+
+      <!-- Stats Row -->
+      <div class="stats-row">
+        <div class="stat-card">
+          <div class="stat-card-top">
+            <div class="stat-icon blue">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+            </div>
+            <span class="stat-change up">↗ +3.0%</span>
+          </div>
+          <div class="stat-value">$961.49</div>
+          <div class="stat-label">Total Portfolio Value</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-top">
+            <div class="stat-icon orange">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="2"/><path d="M7 2v20"/><path d="M17 2v20"/><path d="M2 12h20"/><path d="M2 7h5"/><path d="M2 17h5"/><path d="M17 7h5"/><path d="M17 17h5"/></svg>
+            </div>
+          </div>
+          <div class="stat-value">16</div>
+          <div class="stat-label">Total Cards</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-top">
+            <div class="stat-icon purple">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="4" height="18" rx="1"/><rect x="10" y="8" width="4" height="13" rx="1"/><rect x="17" y="5" width="4" height="16" rx="1"/></svg>
+            </div>
+          </div>
+          <div class="stat-value">12</div>
+          <div class="stat-label">Unique Cards</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-top">
+            <div class="stat-icon red">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+            </div>
+            <span class="stat-change up">↗ +9.7%</span>
+          </div>
+          <div class="stat-value">$60.09</div>
+          <div class="stat-label">Avg Card Value</div>
+        </div>
+      </div>
+
+      <!-- Chart + Set Completion -->
+      <div class="two-col">
+        <!-- Portfolio Value Chart -->
+        <div class="panel">
+          <div class="panel-header">
+            <h2>Portfolio Value</h2>
+            <div class="time-tabs">
+              <button class="time-tab">1W</button>
+              <button class="time-tab">1M</button>
+              <button class="time-tab">3M</button>
+              <button class="time-tab active">1Y</button>
+              <button class="time-tab">All</button>
+            </div>
+          </div>
+          <div class="chart-area">
+            <svg viewBox="0 0 600 200" preserveAspectRatio="none">
+              <!-- Grid lines -->
+              <line x1="0" y1="20" x2="600" y2="20" stroke="#F3F4F6" stroke-width="1"/>
+              <line x1="0" y1="65" x2="600" y2="65" stroke="#F3F4F6" stroke-width="1"/>
+              <line x1="0" y1="110" x2="600" y2="110" stroke="#F3F4F6" stroke-width="1"/>
+              <line x1="0" y1="155" x2="600" y2="155" stroke="#F3F4F6" stroke-width="1"/>
+              <!-- Area fill -->
+              <path d="M0 170 L60 165 L120 155 L180 140 L210 150 L260 120 L320 100 L380 90 L420 85 L480 70 L540 40 L600 30 L600 200 L0 200 Z" fill="url(#gradient)" opacity="0.2"/>
+              <!-- Line -->
+              <polyline points="0,170 60,165 120,155 180,140 210,150 260,120 320,100 380,90 420,85 480,70 540,40 600,30" fill="none" stroke="#3B82F6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <defs>
+                <linearGradient id="gradient" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#3B82F6"/>
+                  <stop offset="100%" stop-color="#3B82F6" stop-opacity="0"/>
+                </linearGradient>
+              </defs>
+              <!-- Y-axis labels -->
+              <text x="0" y="16" font-size="11" fill="#9CA3AF" font-family="Inter">1011</text>
+              <text x="0" y="62" font-size="11" fill="#9CA3AF" font-family="Inter">850</text>
+              <text x="0" y="108" font-size="11" fill="#9CA3AF" font-family="Inter">760</text>
+              <text x="0" y="153" font-size="11" fill="#9CA3AF" font-family="Inter">670</text>
+              <!-- X-axis labels -->
+              <text x="50" y="195" font-size="11" fill="#9CA3AF" font-family="Inter" text-anchor="middle">Jan</text>
+              <text x="140" y="195" font-size="11" fill="#9CA3AF" font-family="Inter" text-anchor="middle">Feb</text>
+              <text x="240" y="195" font-size="11" fill="#9CA3AF" font-family="Inter" text-anchor="middle">Mar</text>
+              <text x="340" y="195" font-size="11" fill="#9CA3AF" font-family="Inter" text-anchor="middle">Apr</text>
+              <text x="430" y="195" font-size="11" fill="#9CA3AF" font-family="Inter" text-anchor="middle">May</text>
+              <text x="510" y="195" font-size="11" fill="#9CA3AF" font-family="Inter" text-anchor="middle">Jun</text>
+              <text x="590" y="195" font-size="11" fill="#9CA3AF" font-family="Inter" text-anchor="middle">Jul</text>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Set Completion -->
+        <div class="panel">
+          <div class="panel-header">
+            <h2>Set Completion</h2>
+          </div>
+          <!-- Base Set -->
+          <div class="set-item">
+            <div class="set-circle">
+              <svg viewBox="0 0 56 56">
+                <circle cx="28" cy="28" r="24" fill="none" stroke="#E5E7EB" stroke-width="4"/>
+                <circle cx="28" cy="28" r="24" fill="none" stroke="#3B82F6" stroke-width="4" stroke-dasharray="12 139" stroke-linecap="round"/>
+              </svg>
+              <span class="pct">8%</span>
+            </div>
+            <div class="set-info">
+              <div class="set-name">Base Set</div>
+              <div class="set-count">8/102 cards</div>
+            </div>
+          </div>
+          <!-- Fossil -->
+          <div class="set-item">
+            <div class="set-circle">
+              <svg viewBox="0 0 56 56">
+                <circle cx="28" cy="28" r="24" fill="none" stroke="#E5E7EB" stroke-width="4"/>
+                <circle cx="28" cy="28" r="24" fill="none" stroke="#3B82F6" stroke-width="4" stroke-dasharray="7.5 143.5" stroke-linecap="round"/>
+              </svg>
+              <span class="pct">5%</span>
+            </div>
+            <div class="set-info">
+              <div class="set-name">Fossil</div>
+              <div class="set-count">3/62 cards</div>
+            </div>
+          </div>
+          <a href="#" style="display:flex;align-items:center;gap:6px;font-size:14px;font-weight:600;color:#3B82F6;margin-top:16px;">View all sets &rarr;</a>
+        </div>
+      </div>
+
+      <!-- Most Valuable + Biggest Movers -->
+      <div class="two-col-equal">
+        <div class="panel">
+          <div class="panel-header">
+            <h2>Most Valuable</h2>
+            <a href="#">View all</a>
+          </div>
+          <div class="value-item">
+            <div class="value-img pkmn-charizard" style="border-radius:8px;"></div>
+            <div class="value-info">
+              <div class="value-name">Charizard</div>
+              <div class="value-meta">Base Set · 4/102</div>
+              <div class="value-condition">Near Mint</div>
+            </div>
+            <div class="value-right">
+              <div class="value-price">$349.99</div>
+              <div class="value-change up">↗ +12.5%</div>
+            </div>
+          </div>
+        </div>
+        <div class="panel">
+          <div class="panel-header">
+            <h2>Biggest Movers</h2>
+            <a href="#">View all</a>
+          </div>
+          <div class="value-item">
+            <div class="value-img pkmn-gengar" style="border-radius:8px;"></div>
+            <div class="value-info">
+              <div class="value-name">Gengar</div>
+              <div class="value-meta">Fossil · 5/62</div>
+              <div class="value-condition">Near Mint</div>
+            </div>
+            <div class="value-right">
+              <div class="value-price">$72.00</div>
+              <div class="value-change up">↗ +15.2%</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+</body>
+</html>

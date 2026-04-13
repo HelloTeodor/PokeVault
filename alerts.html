@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DexVault - Alerts</title>
+  <link rel="stylesheet" href="app.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <aside class="sidebar">
+    <div class="sidebar-logo"><div class="logo-circle">D</div><span>DexVault</span></div>
+    <nav class="sidebar-nav">
+      <a href="dashboard.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg>Dashboard</a>
+      <a href="collection.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>Collection</a>
+      <a href="marketplace.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>Marketplace</a>
+      <a href="scan.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg>Scan Card</a>
+      <a href="prices.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>Prices</a>
+      <a href="wishlist.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>Wishlist</a>
+      <a href="alerts.html" class="active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg>Alerts<span class="nav-dot"></span></a>
+      <a href="grading.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Grading</a>
+      <a href="profile.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>Profile</a>
+    </nav>
+    <div class="sidebar-bottom"><a href="#"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>Collapse</a></div>
+  </aside>
+
+  <div class="main-wrapper">
+    <header class="topbar">
+      <div class="search-bar">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" placeholder="Search cards, sets, users...">
+      </div>
+      <div class="topbar-right">
+        <div class="topbar-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg></div>
+        <div class="topbar-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg><span class="notif-dot"></span></div>
+        <div class="user-avatar">JD</div>
+      </div>
+    </header>
+
+    <main class="content">
+      <div class="page-header-row">
+        <div class="page-header">
+          <h1>Price Alerts</h1>
+          <p>Get notified when cards hit your target price.</p>
+        </div>
+        <div class="header-actions">
+          <a href="#" class="btn btn-primary">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/><line x1="12" y1="2" x2="12" y2="5"/></svg>
+            Create Alert
+          </a>
+        </div>
+      </div>
+
+      <!-- Stats -->
+      <div class="stats-row" style="grid-template-columns: repeat(3, 1fr);">
+        <div class="stat-card">
+          <div class="stat-card-top">
+            <div class="stat-icon blue"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg></div>
+          </div>
+          <div class="stat-value">12</div>
+          <div class="stat-label">Active Alerts</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-top">
+            <div class="stat-icon green"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></div>
+          </div>
+          <div class="stat-value">3</div>
+          <div class="stat-label">Triggered Today</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-top">
+            <div class="stat-icon purple"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div>
+          </div>
+          <div class="stat-value">28</div>
+          <div class="stat-label">Cards Watched</div>
+        </div>
+      </div>
+
+      <!-- Active Alerts -->
+      <div class="panel">
+        <div class="panel-header">
+          <h2>Active Alerts</h2>
+          <a href="#">Manage All</a>
+        </div>
+
+        <div style="display:flex;align-items:center;gap:14px;padding:16px 0;border-bottom:1px solid #F3F4F6;">
+          <div style="width:32px;height:44px;border-radius:6px;flex-shrink:0;" class="pkmn-charizard"></div>
+          <div style="flex:1;"><div style="font-size:14px;font-weight:600;color:#1E293B;">Charizard</div><div style="font-size:13px;color:#9CA3AF;">Base Set</div></div>
+          <div style="flex:1;font-size:13px;color:#6B7280;">Price drops below $300.00</div>
+          <span class="status-badge shipped">Active</span>
+        </div>
+
+        <div style="display:flex;align-items:center;gap:14px;padding:16px 0;border-bottom:1px solid #F3F4F6;">
+          <div style="width:32px;height:44px;border-radius:6px;flex-shrink:0;background:linear-gradient(145deg,#B0BEC5,#546E7A);"></div>
+          <div style="flex:1;"><div style="font-size:14px;font-weight:600;color:#1E293B;">Lugia</div><div style="font-size:13px;color:#9CA3AF;">Neo Genesis</div></div>
+          <div style="flex:1;font-size:13px;color:#6B7280;">Price drops below $250.00</div>
+          <span class="status-badge shipped">Active</span>
+        </div>
+
+        <div style="display:flex;align-items:center;gap:14px;padding:16px 0;border-bottom:1px solid #F3F4F6;">
+          <div style="width:32px;height:44px;border-radius:6px;flex-shrink:0;" class="pkmn-mewtwo"></div>
+          <div style="flex:1;"><div style="font-size:14px;font-weight:600;color:#1E293B;">Mewtwo</div><div style="font-size:13px;color:#9CA3AF;">Base Set</div></div>
+          <div style="flex:1;font-size:13px;color:#6B7280;">Price rises above $150.00</div>
+          <span class="status-badge grading">Triggered</span>
+        </div>
+
+        <div style="display:flex;align-items:center;gap:14px;padding:16px 0;border-bottom:1px solid #F3F4F6;">
+          <div style="width:32px;height:44px;border-radius:6px;flex-shrink:0;" class="pkmn-blastoise"></div>
+          <div style="flex:1;"><div style="font-size:14px;font-weight:600;color:#1E293B;">Blastoise</div><div style="font-size:13px;color:#9CA3AF;">Base Set</div></div>
+          <div style="flex:1;font-size:13px;color:#6B7280;">Price drops below $80.00</div>
+          <span class="status-badge shipped">Active</span>
+        </div>
+
+        <div style="display:flex;align-items:center;gap:14px;padding:16px 0;border-bottom:1px solid #F3F4F6;">
+          <div style="width:32px;height:44px;border-radius:6px;flex-shrink:0;" class="pkmn-gengar"></div>
+          <div style="flex:1;"><div style="font-size:14px;font-weight:600;color:#1E293B;">Gengar</div><div style="font-size:13px;color:#9CA3AF;">Fossil</div></div>
+          <div style="flex:1;font-size:13px;color:#6B7280;">Price rises above $80.00</div>
+          <span class="status-badge grading">Triggered</span>
+        </div>
+
+        <div style="display:flex;align-items:center;gap:14px;padding:16px 0;">
+          <div style="width:32px;height:44px;border-radius:6px;flex-shrink:0;background:linear-gradient(145deg,#424242,#1A1A1A);"></div>
+          <div style="flex:1;"><div style="font-size:14px;font-weight:600;color:#1E293B;">Umbreon</div><div style="font-size:13px;color:#9CA3AF;">Neo Discovery</div></div>
+          <div style="flex:1;font-size:13px;color:#6B7280;">Price drops below $200.00</div>
+          <span class="status-badge shipped">Active</span>
+        </div>
+      </div>
+
+      <!-- Recent Notifications -->
+      <div class="panel">
+        <div class="panel-header">
+          <h2>Recent Notifications</h2>
+        </div>
+
+        <div style="display:flex;align-items:flex-start;gap:14px;padding:16px 0;border-bottom:1px solid #F3F4F6;">
+          <div style="width:36px;height:36px;border-radius:50%;background:#F0FDF4;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22C55E" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <div style="flex:1;">
+            <div style="font-size:14px;font-weight:600;color:#1E293B;">Mewtwo hit your target!</div>
+            <div style="font-size:13px;color:#6B7280;margin-top:2px;">Price rose to $152.30 — above your $150.00 alert</div>
+            <div style="font-size:12px;color:#9CA3AF;margin-top:4px;">2 hours ago</div>
+          </div>
+        </div>
+
+        <div style="display:flex;align-items:flex-start;gap:14px;padding:16px 0;border-bottom:1px solid #F3F4F6;">
+          <div style="width:36px;height:36px;border-radius:50%;background:#F0FDF4;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22C55E" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <div style="flex:1;">
+            <div style="font-size:14px;font-weight:600;color:#1E293B;">Gengar price alert triggered</div>
+            <div style="font-size:13px;color:#6B7280;margin-top:2px;">Price rose to $82.50 — above your $80.00 alert</div>
+            <div style="font-size:12px;color:#9CA3AF;margin-top:4px;">5 hours ago</div>
+          </div>
+        </div>
+
+        <div style="display:flex;align-items:flex-start;gap:14px;padding:16px 0;border-bottom:1px solid #F3F4F6;">
+          <div style="width:36px;height:36px;border-radius:50%;background:#EFF6FF;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="2"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+          </div>
+          <div style="flex:1;">
+            <div style="font-size:14px;font-weight:600;color:#1E293B;">Market Update</div>
+            <div style="font-size:13px;color:#6B7280;margin-top:2px;">Base Set cards averaged +3.2% this week</div>
+            <div style="font-size:12px;color:#9CA3AF;margin-top:4px;">1 day ago</div>
+          </div>
+        </div>
+
+        <div style="display:flex;align-items:flex-start;gap:14px;padding:16px 0;">
+          <div style="width:36px;height:36px;border-radius:50%;background:#EFF6FF;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/></svg>
+          </div>
+          <div style="flex:1;">
+            <div style="font-size:14px;font-weight:600;color:#1E293B;">New listing match</div>
+            <div style="font-size:13px;color:#6B7280;margin-top:2px;">Charizard Base Set listed at $325.00 on marketplace</div>
+            <div style="font-size:12px;color:#9CA3AF;margin-top:4px;">2 days ago</div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

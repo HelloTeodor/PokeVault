@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DexVault - Profile</title>
+  <link rel="stylesheet" href="app.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <aside class="sidebar">
+    <div class="sidebar-logo"><div class="logo-circle">D</div><span>DexVault</span></div>
+    <nav class="sidebar-nav">
+      <a href="dashboard.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg>Dashboard</a>
+      <a href="collection.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>Collection</a>
+      <a href="marketplace.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>Marketplace</a>
+      <a href="scan.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg>Scan Card</a>
+      <a href="prices.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>Prices</a>
+      <a href="wishlist.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>Wishlist</a>
+      <a href="alerts.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg>Alerts</a>
+      <a href="grading.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Grading</a>
+      <a href="profile.html" class="active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>Profile<span class="nav-dot"></span></a>
+    </nav>
+    <div class="sidebar-bottom"><a href="#"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>Collapse</a></div>
+  </aside>
+
+  <div class="main-wrapper">
+    <header class="topbar">
+      <div class="search-bar">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" placeholder="Search cards, sets, users...">
+      </div>
+      <div class="topbar-right">
+        <div class="topbar-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg></div>
+        <div class="topbar-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg><span class="notif-dot"></span></div>
+        <div class="user-avatar">JD</div>
+      </div>
+    </header>
+
+    <main class="content">
+      <!-- Profile Header -->
+      <div class="panel" style="margin-bottom:28px;">
+        <div style="display:flex;align-items:center;justify-content:space-between;">
+          <div class="profile-header-card">
+            <div class="profile-avatar-lg">JD</div>
+            <div class="profile-info">
+              <h2>John Doe</h2>
+              <div class="profile-handle">@johndoe</div>
+              <div class="profile-bio">Collector since 1999. Chasing that PSA 10 Charizard.</div>
+              <div class="profile-stats-row">
+                <div class="profile-stat"><span class="ps-val">16</span> <span class="ps-label">Cards</span></div>
+                <div class="profile-stat"><span class="ps-val">2</span> <span class="ps-label">Sets</span></div>
+                <div class="profile-stat"><span class="ps-val">5</span> <span class="ps-label">Graded</span></div>
+                <div class="profile-stat"><span class="ps-val">12</span> <span class="ps-label">Trades</span></div>
+              </div>
+            </div>
+          </div>
+          <a href="#" class="btn btn-outline">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+            Edit Profile
+          </a>
+        </div>
+      </div>
+
+      <div class="two-col-equal">
+        <!-- Collection Highlights -->
+        <div class="panel">
+          <div class="panel-header">
+            <h2>Top Cards</h2>
+            <a href="collection.html">View All</a>
+          </div>
+          <div class="value-item">
+            <div class="value-img pkmn-charizard" style="border-radius:8px;"></div>
+            <div class="value-info">
+              <div class="value-name">Charizard</div>
+              <div class="value-meta">Base Set · 4/102</div>
+              <div class="value-condition">PSA 9</div>
+            </div>
+            <div class="value-right">
+              <div class="value-price">$349.99</div>
+            </div>
+          </div>
+          <div class="value-item">
+            <div class="value-img pkmn-mewtwo" style="border-radius:8px;"></div>
+            <div class="value-info">
+              <div class="value-name">Mewtwo</div>
+              <div class="value-meta">Base Set · 10/102</div>
+              <div class="value-condition">PSA 8</div>
+            </div>
+            <div class="value-right">
+              <div class="value-price">$125.00</div>
+            </div>
+          </div>
+          <div class="value-item">
+            <div class="value-img pkmn-blastoise" style="border-radius:8px;"></div>
+            <div class="value-info">
+              <div class="value-name">Blastoise</div>
+              <div class="value-meta">Base Set · 2/102</div>
+              <div class="value-condition">Excellent</div>
+            </div>
+            <div class="value-right">
+              <div class="value-price">$89.99</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Activity -->
+        <div class="panel">
+          <div class="panel-header">
+            <h2>Recent Activity</h2>
+          </div>
+
+          <div style="display:flex;align-items:flex-start;gap:14px;padding:14px 0;border-bottom:1px solid #F3F4F6;">
+            <div style="width:36px;height:36px;border-radius:50%;background:#F0FDF4;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22C55E" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </div>
+            <div style="flex:1;">
+              <div style="font-size:14px;font-weight:600;">Added Charizard to collection</div>
+              <div style="font-size:12px;color:#9CA3AF;margin-top:2px;">2 days ago</div>
+            </div>
+          </div>
+
+          <div style="display:flex;align-items:flex-start;gap:14px;padding:14px 0;border-bottom:1px solid #F3F4F6;">
+            <div style="width:36px;height:36px;border-radius:50%;background:#EFF6FF;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <div style="flex:1;">
+              <div style="font-size:14px;font-weight:600;">Pikachu graded PSA 10</div>
+              <div style="font-size:12px;color:#9CA3AF;margin-top:2px;">3 days ago</div>
+            </div>
+          </div>
+
+          <div style="display:flex;align-items:flex-start;gap:14px;padding:14px 0;border-bottom:1px solid #F3F4F6;">
+            <div style="width:36px;height:36px;border-radius:50%;background:#FEF2F2;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#EF4444" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+            </div>
+            <div style="flex:1;">
+              <div style="font-size:14px;font-weight:600;">Added Lugia to wishlist</div>
+              <div style="font-size:12px;color:#9CA3AF;margin-top:2px;">5 days ago</div>
+            </div>
+          </div>
+
+          <div style="display:flex;align-items:flex-start;gap:14px;padding:14px 0;border-bottom:1px solid #F3F4F6;">
+            <div style="width:36px;height:36px;border-radius:50%;background:#FEFCE8;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#CA8A04" stroke-width="2"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/></svg>
+            </div>
+            <div style="flex:1;">
+              <div style="font-size:14px;font-weight:600;">Traded Machamp for Alakazam</div>
+              <div style="font-size:12px;color:#9CA3AF;margin-top:2px;">1 week ago</div>
+            </div>
+          </div>
+
+          <div style="display:flex;align-items:flex-start;gap:14px;padding:14px 0;">
+            <div style="width:36px;height:36px;border-radius:50%;background:#F0FDF4;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22C55E" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </div>
+            <div style="flex:1;">
+              <div style="font-size:14px;font-weight:600;">Added 3 Fossil cards</div>
+              <div style="font-size:12px;color:#9CA3AF;margin-top:2px;">1 week ago</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Settings Sections -->
+      <div class="panel" style="margin-top:20px;">
+        <div class="panel-header">
+          <h2>Settings</h2>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:0;">
+          <div style="display:flex;align-items:center;justify-content:space-between;padding:16px 0;border-bottom:1px solid #F3F4F6;">
+            <div>
+              <div style="font-size:15px;font-weight:600;color:#1E293B;">Email Notifications</div>
+              <div style="font-size:13px;color:#6B7280;">Get alerts for price changes and trades</div>
+            </div>
+            <div style="width:44px;height:24px;border-radius:12px;background:#3B82F6;position:relative;cursor:pointer;">
+              <div style="width:20px;height:20px;border-radius:50%;background:#fff;position:absolute;top:2px;right:2px;box-shadow:0 1px 3px rgba(0,0,0,0.15);"></div>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:space-between;padding:16px 0;border-bottom:1px solid #F3F4F6;">
+            <div>
+              <div style="font-size:15px;font-weight:600;color:#1E293B;">Public Profile</div>
+              <div style="font-size:13px;color:#6B7280;">Allow other collectors to view your collection</div>
+            </div>
+            <div style="width:44px;height:24px;border-radius:12px;background:#3B82F6;position:relative;cursor:pointer;">
+              <div style="width:20px;height:20px;border-radius:50%;background:#fff;position:absolute;top:2px;right:2px;box-shadow:0 1px 3px rgba(0,0,0,0.15);"></div>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:space-between;padding:16px 0;border-bottom:1px solid #F3F4F6;">
+            <div>
+              <div style="font-size:15px;font-weight:600;color:#1E293B;">Dark Mode</div>
+              <div style="font-size:13px;color:#6B7280;">Switch between light and dark theme</div>
+            </div>
+            <div style="width:44px;height:24px;border-radius:12px;background:#D1D5DB;position:relative;cursor:pointer;">
+              <div style="width:20px;height:20px;border-radius:50%;background:#fff;position:absolute;top:2px;left:2px;box-shadow:0 1px 3px rgba(0,0,0,0.15);"></div>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:space-between;padding:16px 0;">
+            <div>
+              <div style="font-size:15px;font-weight:600;color:#1E293B;">Currency</div>
+              <div style="font-size:13px;color:#6B7280;">Display prices in your preferred currency</div>
+            </div>
+            <div class="sort-dropdown" style="padding:6px 12px;font-size:13px;">USD ($) <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Danger Zone -->
+      <div class="panel" style="margin-top:20px;border-color:#FCA5A5;">
+        <div class="panel-header">
+          <h2 style="color:#EF4444;">Danger Zone</h2>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:space-between;">
+          <div>
+            <div style="font-size:15px;font-weight:600;color:#1E293B;">Delete Account</div>
+            <div style="font-size:13px;color:#6B7280;">Permanently delete your account and all data</div>
+          </div>
+          <a href="#" class="btn btn-sm" style="background:#FEF2F2;color:#EF4444;border:1px solid #FCA5A5;">Delete Account</a>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

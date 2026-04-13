@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DexVault - My Collection</title>
+  <link rel="stylesheet" href="app.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <div class="logo-circle">D</div>
+      <span>DexVault</span>
+    </div>
+    <nav class="sidebar-nav">
+      <a href="dashboard.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg>
+        Dashboard
+      </a>
+      <a href="collection.html" class="active">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        Collection
+      </a>
+      <a href="marketplace.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+        Marketplace
+      </a>
+      <a href="scan.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg>
+        Scan Card
+      </a>
+      <a href="prices.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+        Prices
+      </a>
+      <a href="wishlist.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+        Wishlist
+      </a>
+      <a href="alerts.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg>
+        Alerts
+      </a>
+      <a href="grading.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        Grading
+      </a>
+      <a href="profile.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        Profile
+      </a>
+    </nav>
+    <div class="sidebar-bottom">
+      <a href="#">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+        Collapse
+      </a>
+    </div>
+  </aside>
+
+  <!-- Main -->
+  <div class="main-wrapper">
+    <!-- Top Bar -->
+    <header class="topbar">
+      <div class="search-bar">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" placeholder="Search cards, sets, users...">
+      </div>
+      <div class="topbar-right">
+        <div class="topbar-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+        </div>
+        <div class="topbar-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg>
+          <span class="notif-dot"></span>
+        </div>
+        <div class="user-avatar">JD</div>
+      </div>
+    </header>
+
+    <!-- Content -->
+    <main class="content">
+      <!-- Page Header Row -->
+      <div class="page-header-row">
+        <div>
+          <h1 style="font-size:26px;font-weight:800;color:#1E293B;letter-spacing:-0.02em;">My Collection</h1>
+          <p style="font-size:15px;color:#6B7280;margin-top:4px;">12 cards &middot; $1,084.98 total value</p>
+        </div>
+        <div class="header-actions">
+          <button class="btn btn-primary">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg>
+            Scan Card
+          </button>
+          <button class="btn btn-outline">+ Add Manual</button>
+        </div>
+      </div>
+
+      <!-- Collection Toolbar -->
+      <div class="collection-toolbar">
+        <div class="filter-pills">
+          <span class="pill active">All</span>
+          <span class="pill">Fire</span>
+          <span class="pill">Water</span>
+          <span class="pill">Grass</span>
+          <span class="pill">Electric</span>
+          <span class="pill">Psychic</span>
+          <span class="pill">Dragon</span>
+          <span class="pill">Fighting</span>
+        </div>
+        <div class="view-toggle">
+          <button class="active">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+          </button>
+          <button>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Card Grid -->
+      <div class="card-grid">
+        <!-- Row 1 -->
+        <div class="card-item">
+          <div class="card-img pkmn-charizard">
+            <span class="badge badge-psa">PSA 9</span>
+          </div>
+          <div class="card-info">
+            <div class="card-name">Charizard</div>
+            <div class="card-set">Base Set</div>
+            <div class="card-price-row">
+              <span class="card-price">$349.99</span>
+              <span class="card-change up">+12.5%</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-item">
+          <div class="card-img pkmn-blastoise"></div>
+          <div class="card-info">
+            <div class="card-name">Blastoise</div>
+            <div class="card-set">Base Set</div>
+            <div class="card-price-row">
+              <span class="card-price">$89.99</span>
+              <span class="card-change down">-3.2%</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-item">
+          <div class="card-img pkmn-venusaur"></div>
+          <div class="card-info">
+            <div class="card-name">Venusaur</div>
+            <div class="card-set">Base Set</div>
+            <div class="card-price-row">
+              <span class="card-price">$64.50</span>
+              <span class="card-change up">+5.8%</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-item">
+          <div class="card-img pkmn-pikachu"></div>
+          <div class="card-info">
+            <div class="card-name">Pikachu</div>
+            <div class="card-set">Base Set</div>
+            <div class="card-price-row">
+              <span class="card-price">$12.00</span>
+              <span class="card-change up">+1.2%</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-item">
+          <div class="card-img pkmn-mewtwo">
+            <span class="badge badge-psa">PSA 8</span>
+          </div>
+          <div class="card-info">
+            <div class="card-name">Mewtwo</div>
+            <div class="card-set">Base Set</div>
+            <div class="card-price-row">
+              <span class="card-price">$125.00</span>
+              <span class="card-change up">+8.3%</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-item">
+          <div class="card-img pkmn-dragonite"></div>
+          <div class="card-info">
+            <div class="card-name">Dragonite</div>
+            <div class="card-set">Fossil</div>
+            <div class="card-price-row">
+              <span class="card-price">$55.00</span>
+              <span class="card-change down">-1.5%</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Row 2 -->
+        <div class="card-item">
+          <div class="card-img pkmn-gengar"></div>
+          <div class="card-info">
+            <div class="card-name">Gengar</div>
+            <div class="card-set">Fossil</div>
+            <div class="card-price-row">
+              <span class="card-price">$72.00</span>
+              <span class="card-change up">+15.2%</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-item">
+          <div class="card-img pkmn-alakazam"></div>
+          <div class="card-info">
+            <div class="card-name">Alakazam</div>
+            <div class="card-set">Base Set</div>
+            <div class="card-price-row">
+              <span class="card-price">$45.00</span>
+              <span class="card-change up">+2.1%</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-item">
+          <div class="card-img pkmn-gyarados"></div>
+          <div class="card-info">
+            <div class="card-name">Gyarados</div>
+            <div class="card-set">Base Set</div>
+            <div class="card-price-row">
+              <span class="card-price">$42.00</span>
+              <span class="card-change down">-0.8%</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-item">
+          <div class="card-img pkmn-machamp"></div>
+          <div class="card-info">
+            <div class="card-name">Machamp</div>
+            <div class="card-set">Base Set</div>
+            <div class="card-price-row">
+              <span class="card-price">$28.00</span>
+              <span class="card-change up">+0.5%</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-item">
+          <div class="card-img pkmn-ninetales"></div>
+          <div class="card-info">
+            <div class="card-name">Ninetales</div>
+            <div class="card-set">Base Set</div>
+            <div class="card-price-row">
+              <span class="card-price">$35.00</span>
+              <span class="card-change up">+6.7%</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-item">
+          <div class="card-img pkmn-zapdos"></div>
+          <div class="card-info">
+            <div class="card-name">Zapdos</div>
+            <div class="card-set">Fossil</div>
+            <div class="card-price-row">
+              <span class="card-price">$38.00</span>
+              <span class="card-change down">-2.3%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+</body>
+</html>

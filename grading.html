@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DexVault - Grading</title>
+  <link rel="stylesheet" href="app.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <aside class="sidebar">
+    <div class="sidebar-logo"><div class="logo-circle">D</div><span>DexVault</span></div>
+    <nav class="sidebar-nav">
+      <a href="dashboard.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg>Dashboard</a>
+      <a href="collection.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>Collection</a>
+      <a href="marketplace.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>Marketplace</a>
+      <a href="scan.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg>Scan Card</a>
+      <a href="prices.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>Prices</a>
+      <a href="wishlist.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>Wishlist</a>
+      <a href="alerts.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg>Alerts</a>
+      <a href="grading.html" class="active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Grading<span class="nav-dot"></span></a>
+      <a href="profile.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>Profile</a>
+    </nav>
+    <div class="sidebar-bottom"><a href="#"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>Collapse</a></div>
+  </aside>
+
+  <div class="main-wrapper">
+    <header class="topbar">
+      <div class="search-bar">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" placeholder="Search cards, sets, users...">
+      </div>
+      <div class="topbar-right">
+        <div class="topbar-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg></div>
+        <div class="topbar-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg><span class="notif-dot"></span></div>
+        <div class="user-avatar">JD</div>
+      </div>
+    </header>
+
+    <main class="content">
+      <div class="page-header-row">
+        <div class="page-header">
+          <h1>Grading Tracker</h1>
+          <p>Track your PSA, BGS & CGC submissions in one place.</p>
+        </div>
+        <div class="header-actions">
+          <a href="#" class="btn btn-primary">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            New Submission
+          </a>
+        </div>
+      </div>
+
+      <!-- Stats -->
+      <div class="stats-row">
+        <div class="stat-card">
+          <div class="stat-card-top">
+            <div class="stat-icon blue"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          </div>
+          <div class="stat-value">8</div>
+          <div class="stat-label">Total Submissions</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-top">
+            <div class="stat-icon yellow"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+          </div>
+          <div class="stat-value">3</div>
+          <div class="stat-label">In Progress</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-top">
+            <div class="stat-icon green"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></div>
+          </div>
+          <div class="stat-value">5</div>
+          <div class="stat-label">Completed</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-top">
+            <div class="stat-icon purple"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+          </div>
+          <div class="stat-value">9.2</div>
+          <div class="stat-label">Avg Grade</div>
+        </div>
+      </div>
+
+      <!-- Submissions Table -->
+      <div class="panel">
+        <div class="panel-header">
+          <h2>Submissions</h2>
+          <div class="filter-pills">
+            <span class="pill active">All</span>
+            <span class="pill">PSA</span>
+            <span class="pill">BGS</span>
+            <span class="pill">CGC</span>
+          </div>
+        </div>
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Card</th>
+              <th>Service</th>
+              <th>Submitted</th>
+              <th>Status</th>
+              <th>Grade</th>
+              <th>Value Impact</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <div style="display:flex;align-items:center;gap:10px;">
+                  <div style="width:28px;height:40px;border-radius:4px;flex-shrink:0;" class="pkmn-charizard"></div>
+                  <div><div style="font-weight:600;">Charizard</div><div style="font-size:12px;color:#9CA3AF;">Base Set · 4/102</div></div>
+                </div>
+              </td>
+              <td><span style="font-weight:600;color:#EF4444;">PSA</span></td>
+              <td>Jan 15, 2026</td>
+              <td><span class="status-badge shipped">Shipped Back</span></td>
+              <td><span style="font-size:18px;font-weight:800;color:#1E293B;">9</span></td>
+              <td><span style="font-weight:600;color:#22C55E;">+$120.00</span></td>
+            </tr>
+            <tr>
+              <td>
+                <div style="display:flex;align-items:center;gap:10px;">
+                  <div style="width:28px;height:40px;border-radius:4px;flex-shrink:0;" class="pkmn-mewtwo"></div>
+                  <div><div style="font-weight:600;">Mewtwo</div><div style="font-size:12px;color:#9CA3AF;">Base Set · 10/102</div></div>
+                </div>
+              </td>
+              <td><span style="font-weight:600;color:#EF4444;">PSA</span></td>
+              <td>Feb 3, 2026</td>
+              <td><span class="status-badge shipped">Shipped Back</span></td>
+              <td><span style="font-size:18px;font-weight:800;color:#1E293B;">8</span></td>
+              <td><span style="font-weight:600;color:#22C55E;">+$45.00</span></td>
+            </tr>
+            <tr>
+              <td>
+                <div style="display:flex;align-items:center;gap:10px;">
+                  <div style="width:28px;height:40px;border-radius:4px;flex-shrink:0;" class="pkmn-blastoise"></div>
+                  <div><div style="font-weight:600;">Blastoise</div><div style="font-size:12px;color:#9CA3AF;">Base Set · 2/102</div></div>
+                </div>
+              </td>
+              <td><span style="font-weight:600;color:#22C55E;">BGS</span></td>
+              <td>Mar 10, 2026</td>
+              <td><span class="status-badge grading">Grading</span></td>
+              <td>—</td>
+              <td>—</td>
+            </tr>
+            <tr>
+              <td>
+                <div style="display:flex;align-items:center;gap:10px;">
+                  <div style="width:28px;height:40px;border-radius:4px;flex-shrink:0;" class="pkmn-venusaur"></div>
+                  <div><div style="font-weight:600;">Venusaur</div><div style="font-size:12px;color:#9CA3AF;">Base Set · 15/102</div></div>
+                </div>
+              </td>
+              <td><span style="font-weight:600;color:#EF4444;">PSA</span></td>
+              <td>Mar 18, 2026</td>
+              <td><span class="status-badge received">Received</span></td>
+              <td>—</td>
+              <td>—</td>
+            </tr>
+            <tr>
+              <td>
+                <div style="display:flex;align-items:center;gap:10px;">
+                  <div style="width:28px;height:40px;border-radius:4px;flex-shrink:0;" class="pkmn-gengar"></div>
+                  <div><div style="font-weight:600;">Gengar</div><div style="font-size:12px;color:#9CA3AF;">Fossil · 5/62</div></div>
+                </div>
+              </td>
+              <td><span style="font-weight:600;color:#F59E0B;">CGC</span></td>
+              <td>Mar 25, 2026</td>
+              <td><span class="status-badge grading">Grading</span></td>
+              <td>—</td>
+              <td>—</td>
+            </tr>
+            <tr>
+              <td>
+                <div style="display:flex;align-items:center;gap:10px;">
+                  <div style="width:28px;height:40px;border-radius:4px;flex-shrink:0;" class="pkmn-pikachu"></div>
+                  <div><div style="font-weight:600;">Pikachu</div><div style="font-size:12px;color:#9CA3AF;">Base Set · 58/102</div></div>
+                </div>
+              </td>
+              <td><span style="font-weight:600;color:#EF4444;">PSA</span></td>
+              <td>Apr 2, 2026</td>
+              <td><span class="status-badge shipped">Shipped Back</span></td>
+              <td><span style="font-size:18px;font-weight:800;color:#1E293B;">10</span></td>
+              <td><span style="font-weight:600;color:#22C55E;">+$85.00</span></td>
+            </tr>
+            <tr>
+              <td>
+                <div style="display:flex;align-items:center;gap:10px;">
+                  <div style="width:28px;height:40px;border-radius:4px;flex-shrink:0;" class="pkmn-gyarados"></div>
+                  <div><div style="font-weight:600;">Gyarados</div><div style="font-size:12px;color:#9CA3AF;">Base Set · 6/102</div></div>
+                </div>
+              </td>
+              <td><span style="font-weight:600;color:#22C55E;">BGS</span></td>
+              <td>Apr 5, 2026</td>
+              <td><span class="status-badge shipped">Shipped Back</span></td>
+              <td><span style="font-size:18px;font-weight:800;color:#1E293B;">9.5</span></td>
+              <td><span style="font-weight:600;color:#22C55E;">+$38.00</span></td>
+            </tr>
+            <tr>
+              <td>
+                <div style="display:flex;align-items:center;gap:10px;">
+                  <div style="width:28px;height:40px;border-radius:4px;flex-shrink:0;" class="pkmn-ninetales"></div>
+                  <div><div style="font-weight:600;">Ninetales</div><div style="font-size:12px;color:#9CA3AF;">Base Set · 12/102</div></div>
+                </div>
+              </td>
+              <td><span style="font-weight:600;color:#EF4444;">PSA</span></td>
+              <td>Apr 10, 2026</td>
+              <td><span class="status-badge pending">Pending</span></td>
+              <td>—</td>
+              <td>—</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

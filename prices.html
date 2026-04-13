@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DexVault - Prices</title>
+  <link rel="stylesheet" href="app.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <div class="logo-circle">D</div>
+      <span>DexVault</span>
+    </div>
+    <nav class="sidebar-nav">
+      <a href="dashboard.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg>
+        Dashboard
+      </a>
+      <a href="collection.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        Collection
+      </a>
+      <a href="marketplace.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+        Marketplace
+      </a>
+      <a href="scan.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg>
+        Scan Card
+      </a>
+      <a href="prices.html" class="active">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+        Prices
+        <span class="nav-dot"></span>
+      </a>
+      <a href="wishlist.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+        Wishlist
+      </a>
+      <a href="alerts.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg>
+        Alerts
+      </a>
+      <a href="grading.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        Grading
+      </a>
+      <a href="profile.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        Profile
+      </a>
+    </nav>
+    <div class="sidebar-bottom">
+      <a href="#">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+        Collapse
+      </a>
+    </div>
+  </aside>
+
+  <!-- Main -->
+  <div class="main-wrapper">
+    <!-- Top Bar -->
+    <header class="topbar">
+      <div class="search-bar">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" placeholder="Search cards, sets, users...">
+      </div>
+      <div class="topbar-right">
+        <div class="topbar-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+        </div>
+        <div class="topbar-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg>
+          <span class="notif-dot"></span>
+        </div>
+        <div class="user-avatar">JD</div>
+      </div>
+    </header>
+
+    <!-- Content -->
+    <main class="content">
+      <!-- Page Header -->
+      <div class="page-header">
+        <h1>Price Tracker</h1>
+        <p>Real-time pricing from eBay, TCGplayer &amp; Cardmarket.</p>
+      </div>
+
+      <!-- Stats Row -->
+      <div class="stats-row">
+        <div class="stat-card">
+          <div class="stat-card-top">
+            <div class="stat-icon green">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+            </div>
+            <span class="stat-change up">+1.8%</span>
+          </div>
+          <div class="stat-value">$2.4M</div>
+          <div class="stat-label">Total Market Cap</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-top">
+            <div class="stat-icon blue">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83 0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
+            </div>
+            <span class="stat-change up">+3.2%</span>
+          </div>
+          <div class="stat-value">$47.32</div>
+          <div class="stat-label">Avg Card Price</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-top">
+            <div class="stat-icon green">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+            </div>
+          </div>
+          <div class="stat-value">142</div>
+          <div class="stat-label">Cards Trending Up</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-top">
+            <div class="stat-icon red">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 17 13.5 8.5 8.5 13.5 2 7"/><polyline points="16 17 22 17 22 11"/></svg>
+            </div>
+          </div>
+          <div class="stat-value">38</div>
+          <div class="stat-label">Cards Trending Down</div>
+        </div>
+      </div>
+
+      <!-- Search / Filter Bar -->
+      <div class="panel" style="margin-bottom: 20px;">
+        <div style="display: flex; align-items: center; gap: 20px; flex-wrap: wrap;">
+          <div class="search-bar" style="flex: 1; min-width: 280px;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <input type="text" placeholder="Search any Pok&#233;mon card...">
+          </div>
+          <div class="filter-pills">
+            <button class="pill active">All</button>
+            <button class="pill">Base Set</button>
+            <button class="pill">Fossil</button>
+            <button class="pill">Jungle</button>
+            <button class="pill">Team Rocket</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Price Table -->
+      <div class="panel">
+        <div class="panel-header">
+          <h2>Market Prices</h2>
+          <span class="view-link">Export CSV</span>
+        </div>
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Card</th>
+              <th>Set</th>
+              <th>Market Price</th>
+              <th>24h Change</th>
+              <th>7d Change</th>
+              <th>Volume</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <div style="display: flex; align-items: center; gap: 12px;">
+                  <div class="pkmn-charizard" style="width: 32px; height: 44px; border-radius: 6px; flex-shrink: 0;"></div>
+                  <span style="font-weight: 600; color: #1E293B;">Charizard</span>
+                </div>
+              </td>
+              <td>Base Set</td>
+              <td style="font-weight: 700; color: #1E293B;">$349.99</td>
+              <td style="font-weight: 600; color: #22C55E;">+2.4%</td>
+              <td style="font-weight: 600; color: #22C55E;">+12.5%</td>
+              <td>847</td>
+            </tr>
+            <tr>
+              <td>
+                <div style="display: flex; align-items: center; gap: 12px;">
+                  <div class="pkmn-mewtwo" style="width: 32px; height: 44px; border-radius: 6px; flex-shrink: 0;"></div>
+                  <span style="font-weight: 600; color: #1E293B;">Mewtwo</span>
+                </div>
+              </td>
+              <td>Base Set</td>
+              <td style="font-weight: 700; color: #1E293B;">$125.00</td>
+              <td style="font-weight: 600; color: #22C55E;">+1.1%</td>
+              <td style="font-weight: 600; color: #22C55E;">+8.3%</td>
+              <td>523</td>
+            </tr>
+            <tr>
+              <td>
+                <div style="display: flex; align-items: center; gap: 12px;">
+                  <div class="pkmn-blastoise" style="width: 32px; height: 44px; border-radius: 6px; flex-shrink: 0;"></div>
+                  <span style="font-weight: 600; color: #1E293B;">Blastoise</span>
+                </div>
+              </td>
+              <td>Base Set</td>
+              <td style="font-weight: 700; color: #1E293B;">$89.99</td>
+              <td style="font-weight: 600; color: #EF4444;">-0.8%</td>
+              <td style="font-weight: 600; color: #EF4444;">-3.2%</td>
+              <td>412</td>
+            </tr>
+            <tr>
+              <td>
+                <div style="display: flex; align-items: center; gap: 12px;">
+                  <div class="pkmn-gengar" style="width: 32px; height: 44px; border-radius: 6px; flex-shrink: 0;"></div>
+                  <span style="font-weight: 600; color: #1E293B;">Gengar</span>
+                </div>
+              </td>
+              <td>Fossil</td>
+              <td style="font-weight: 700; color: #1E293B;">$72.00</td>
+              <td style="font-weight: 600; color: #22C55E;">+3.2%</td>
+              <td style="font-weight: 600; color: #22C55E;">+15.2%</td>
+              <td>389</td>
+            </tr>
+            <tr>
+              <td>
+                <div style="display: flex; align-items: center; gap: 12px;">
+                  <div class="pkmn-venusaur" style="width: 32px; height: 44px; border-radius: 6px; flex-shrink: 0;"></div>
+                  <span style="font-weight: 600; color: #1E293B;">Venusaur</span>
+                </div>
+              </td>
+              <td>Base Set</td>
+              <td style="font-weight: 700; color: #1E293B;">$64.50</td>
+              <td style="font-weight: 600; color: #22C55E;">+0.5%</td>
+              <td style="font-weight: 600; color: #22C55E;">+5.8%</td>
+              <td>356</td>
+            </tr>
+            <tr>
+              <td>
+                <div style="display: flex; align-items: center; gap: 12px;">
+                  <div class="pkmn-dragonite" style="width: 32px; height: 44px; border-radius: 6px; flex-shrink: 0;"></div>
+                  <span style="font-weight: 600; color: #1E293B;">Dragonite</span>
+                </div>
+              </td>
+              <td>Fossil</td>
+              <td style="font-weight: 700; color: #1E293B;">$55.00</td>
+              <td style="font-weight: 600; color: #EF4444;">-0.3%</td>
+              <td style="font-weight: 600; color: #EF4444;">-1.5%</td>
+              <td>298</td>
+            </tr>
+            <tr>
+              <td>
+                <div style="display: flex; align-items: center; gap: 12px;">
+                  <div class="pkmn-alakazam" style="width: 32px; height: 44px; border-radius: 6px; flex-shrink: 0;"></div>
+                  <span style="font-weight: 600; color: #1E293B;">Alakazam</span>
+                </div>
+              </td>
+              <td>Base Set</td>
+              <td style="font-weight: 700; color: #1E293B;">$45.00</td>
+              <td style="font-weight: 600; color: #22C55E;">+0.9%</td>
+              <td style="font-weight: 600; color: #22C55E;">+2.1%</td>
+              <td>267</td>
+            </tr>
+            <tr>
+              <td>
+                <div style="display: flex; align-items: center; gap: 12px;">
+                  <div class="pkmn-gyarados" style="width: 32px; height: 44px; border-radius: 6px; flex-shrink: 0;"></div>
+                  <span style="font-weight: 600; color: #1E293B;">Gyarados</span>
+                </div>
+              </td>
+              <td>Base Set</td>
+              <td style="font-weight: 700; color: #1E293B;">$42.00</td>
+              <td style="font-weight: 600; color: #EF4444;">-0.2%</td>
+              <td style="font-weight: 600; color: #EF4444;">-0.8%</td>
+              <td>234</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </main>
+  </div>
+
+</body>
+</html>
