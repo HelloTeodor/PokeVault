@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DexVault - About Us</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    /* ── Shared layout ── */
+    .about-section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    /* ── Hero ── */
+    .about-hero {
+      background: #F0F4FF;
+      padding: 80px 0;
+      text-align: center;
+    }
+    .about-hero h1 {
+      font-size: 48px;
+      font-weight: 800;
+      color: #111827;
+      margin: 0 0 20px;
+      line-height: 1.15;
+    }
+    .about-hero p {
+      font-size: 18px;
+      color: #6B7280;
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    /* ── Mission ── */
+    .about-mission {
+      background: #fff;
+      padding: 80px 0;
+    }
+    .mission-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: start;
+    }
+    .mission-left h2 {
+      font-size: 32px;
+      font-weight: 800;
+      color: #111827;
+      margin: 0 0 20px;
+    }
+    .mission-left p {
+      font-size: 16px;
+      color: #6B7280;
+      line-height: 1.75;
+      margin: 0 0 16px;
+    }
+    .value-card {
+      background: #fff;
+      border: 1px solid #E5E7EB;
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 16px;
+    }
+    .value-card:last-child {
+      margin-bottom: 0;
+    }
+    .value-card-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: #111827;
+      margin: 0 0 8px;
+    }
+    .value-card-desc {
+      font-size: 14px;
+      color: #6B7280;
+      margin: 0;
+      line-height: 1.6;
+    }
+
+    /* ── Stats ── */
+    .about-stats {
+      background: #F8F9FB;
+      padding: 60px 0;
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px;
+      text-align: center;
+    }
+    .stat-item {}
+    .stat-label {
+      font-size: 13px;
+      font-weight: 600;
+      color: #6B7280;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin: 0 0 8px;
+    }
+    .stat-value {
+      font-size: 36px;
+      font-weight: 800;
+      color: #111827;
+      margin: 0;
+    }
+
+    /* ── Team ── */
+    .about-team {
+      background: #fff;
+      padding: 80px 0;
+    }
+    .about-team > .about-section > h2 {
+      font-size: 32px;
+      font-weight: 800;
+      color: #111827;
+      text-align: center;
+      margin: 0 0 12px;
+    }
+    .about-team > .about-section > p {
+      text-align: center;
+      color: #6B7280;
+      font-size: 16px;
+      margin: 0 0 48px;
+    }
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+    .team-card {
+      border: 1px solid #E5E7EB;
+      border-radius: 16px;
+      padding: 32px;
+      text-align: center;
+    }
+    .team-avatar {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      font-weight: 700;
+      color: #fff;
+      margin: 0 auto 20px;
+    }
+    .team-name {
+      font-size: 18px;
+      font-weight: 700;
+      color: #111827;
+      margin: 0 0 4px;
+    }
+    .team-role {
+      font-size: 13px;
+      font-weight: 600;
+      color: #3B82F6;
+      margin: 0 0 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .team-bio {
+      font-size: 14px;
+      color: #6B7280;
+      line-height: 1.65;
+      margin: 0;
+    }
+
+    /* ── Timeline ── */
+    .about-timeline {
+      background: #F8F9FB;
+      padding: 80px 0;
+    }
+    .about-timeline > .about-section > h2 {
+      font-size: 32px;
+      font-weight: 800;
+      color: #111827;
+      text-align: center;
+      margin: 0 0 48px;
+    }
+    .timeline {
+      max-width: 600px;
+      margin: 0 auto;
+      position: relative;
+      padding-left: 32px;
+    }
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 7px;
+      top: 6px;
+      bottom: 6px;
+      width: 2px;
+      background: #E5E7EB;
+    }
+    .timeline-event {
+      position: relative;
+      margin-bottom: 40px;
+    }
+    .timeline-event:last-child {
+      margin-bottom: 0;
+    }
+    .timeline-dot {
+      position: absolute;
+      left: -29px;
+      top: 4px;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: #3B82F6;
+      border: 2px solid #fff;
+      box-shadow: 0 0 0 2px #3B82F6;
+    }
+    .timeline-year {
+      font-size: 12px;
+      font-weight: 700;
+      color: #3B82F6;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin: 0 0 6px;
+    }
+    .timeline-text {
+      font-size: 15px;
+      color: #374151;
+      line-height: 1.65;
+      margin: 0;
+    }
+
+    /* ── CTA ── */
+    .about-cta-wrap {
+      padding: 60px 32px;
+    }
+    .about-cta {
+      max-width: 1100px;
+      margin: 0 auto;
+      background: linear-gradient(135deg, #3B82F6 0%, #6366F1 100%);
+      border-radius: 20px;
+      padding: 64px 40px;
+      text-align: center;
+    }
+    .about-cta h2 {
+      font-size: 32px;
+      font-weight: 800;
+      color: #fff;
+      margin: 0 0 28px;
+    }
+    .about-cta-btn {
+      display: inline-block;
+      background: #fff;
+      color: #3B82F6;
+      font-size: 16px;
+      font-weight: 700;
+      padding: 14px 32px;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .about-cta-btn:hover {
+      opacity: 0.9;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 768px) {
+      .about-hero h1 { font-size: 32px; }
+      .mission-grid { grid-template-columns: 1fr; gap: 40px; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .team-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <div class="logo-icon"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect width="28" height="28" rx="6" fill="#3B82F6"/><circle cx="14" cy="14" r="6" fill="white" opacity="0.9"/><circle cx="14" cy="14" r="3" fill="#3B82F6"/></svg></div>
+        <span class="logo-text">DexVault</span>
+      </a>
+      <div class="nav-links">
+        <a href="features.html">Features</a>
+        <a href="index.html#pricing">Pricing</a>
+        <a href="index.html#community">Community</a>
+      </div>
+      <div class="nav-right">
+        <a href="home.html" class="nav-login">Log In</a>
+        <a href="home.html" class="nav-signup">Sign Up <span>&rarr;</span></a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 1. Hero -->
+  <section class="about-hero">
+    <div class="about-section">
+      <h1>Built by Collectors, for Collectors</h1>
+      <p>DexVault was born from a simple frustration: managing a Pokémon card collection shouldn't require three spreadsheets and five different apps.</p>
+    </div>
+  </section>
+
+  <!-- 2. Mission -->
+  <section class="about-mission">
+    <div class="about-section">
+      <div class="mission-grid">
+        <div class="mission-left">
+          <h2>Our Mission</h2>
+          <p>We believe every collector — from the casual fan with 50 cards to the serious investor with thousands — deserves professional-grade tools. DexVault brings together scanning, pricing, grading, trading, and analytics in one beautifully designed platform.</p>
+          <p>We're obsessed with the details: accurate AI scanning, real-time pricing, and a community that actually helps each other.</p>
+        </div>
+        <div class="mission-right">
+          <div class="value-card">
+            <p class="value-card-title">🎯 Accuracy First</p>
+            <p class="value-card-desc">Our AI is trained on millions of cards. We don't ship until it's right.</p>
+          </div>
+          <div class="value-card">
+            <p class="value-card-title">💎 Collector-Centric</p>
+            <p class="value-card-desc">Every feature is designed by collectors who use it daily.</p>
+          </div>
+          <div class="value-card">
+            <p class="value-card-title">🔒 Trust &amp; Safety</p>
+            <p class="value-card-desc">Escrow-protected trades and verified listings keep the community safe.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Stats -->
+  <section class="about-stats">
+    <div class="about-section">
+      <div class="stats-grid">
+        <div class="stat-item">
+          <p class="stat-label">Founded</p>
+          <p class="stat-value">2024</p>
+        </div>
+        <div class="stat-item">
+          <p class="stat-label">Team</p>
+          <p class="stat-value">28</p>
+        </div>
+        <div class="stat-item">
+          <p class="stat-label">Collectors</p>
+          <p class="stat-value">50K+</p>
+        </div>
+        <div class="stat-item">
+          <p class="stat-label">Cards Tracked</p>
+          <p class="stat-value">2M+</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Team -->
+  <section class="about-team">
+    <div class="about-section">
+      <h2>Meet the Team</h2>
+      <p>A small team of collectors, engineers, and designers.</p>
+      <div class="team-grid">
+        <div class="team-card">
+          <div class="team-avatar" style="background:#3B82F6;">AC</div>
+          <p class="team-name">Alex Chen</p>
+          <p class="team-role">Co-Founder &amp; CEO</p>
+          <p class="team-bio">Pokémon collector since age 7. Previously built fintech tools at Stripe.</p>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar" style="background:#8B5CF6;">MS</div>
+          <p class="team-name">Maria Santos</p>
+          <p class="team-role">Co-Founder &amp; CTO</p>
+          <p class="team-bio">Ex-Google engineer. Runs the AI &amp; infrastructure behind every scan.</p>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar" style="background:#22C55E;">JW</div>
+          <p class="team-name">Jake Williams</p>
+          <p class="team-role">Head of Design</p>
+          <p class="team-bio">UX designer obsessed with making complex data feel simple.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Timeline -->
+  <section class="about-timeline">
+    <div class="about-section">
+      <h2>Our Story</h2>
+      <div class="timeline">
+        <div class="timeline-event">
+          <div class="timeline-dot"></div>
+          <p class="timeline-year">2024 Q1</p>
+          <p class="timeline-text">DexVault founded in a garage. First AI model trained on 10,000 cards.</p>
+        </div>
+        <div class="timeline-event">
+          <div class="timeline-dot"></div>
+          <p class="timeline-year">2024 Q3</p>
+          <p class="timeline-text">Beta launched to 500 collectors. Scan accuracy hit 95%.</p>
+        </div>
+        <div class="timeline-event">
+          <div class="timeline-dot"></div>
+          <p class="timeline-year">2025 Q1</p>
+          <p class="timeline-text">Public launch. 10,000 users in first month. $5M seed round closed.</p>
+        </div>
+        <div class="timeline-event">
+          <div class="timeline-dot"></div>
+          <p class="timeline-year">2026 Q1</p>
+          <p class="timeline-text">50,000 collectors. $180M+ in portfolios tracked. Series A announced.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. CTA -->
+  <div class="about-cta-wrap">
+    <div class="about-cta">
+      <h2>Join 50,000 collectors on DexVault</h2>
+      <a href="home.html" class="about-cta-btn">Start Free Today</a>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+              <rect width="28" height="28" rx="6" fill="#3B82F6"/>
+              <circle cx="14" cy="14" r="6" fill="white" opacity="0.9"/>
+              <circle cx="14" cy="14" r="3" fill="#3B82F6"/>
+            </svg>
+            <span>DexVault</span>
+          </div>
+          <p class="footer-tagline">The ultimate operating system for Pokémon card collectors.</p>
+        </div>
+        <div class="footer-links">
+          <div class="footer-col">
+            <h4>Product</h4>
+            <ul>
+              <li><a href="features.html">Features</a></li>
+              <li><a href="pricing.html">Pricing</a></li>
+              <li><a href="home.html">Scan</a></li>
+              <li><a href="home.html">Marketplace</a></li>
+              <li><a href="home.html">Analytics</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Community</h4>
+            <ul>
+              <li><a href="#">Twitter</a></li>
+              <li><a href="blog.html">Blog</a></li>
+              <li><a href="showcase.html">Showcase</a></li>
+              <li><a href="events.html">Events</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Company</h4>
+            <ul>
+              <li><a href="about.html">About</a></li>
+              <li><a href="press.html">Press</a></li>
+              <li><a href="privacy.html">Privacy</a></li>
+              <li><a href="terms.html">Terms</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 DexVault. All rights reserved.</p>
+        <div class="footer-socials">
+          <a href="#">Twitter</a>
+          <a href="#">Instagram</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

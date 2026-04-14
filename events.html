@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DexVault - Events</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', sans-serif; color: #111827; background: #fff; }
+
+    .page-wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    /* ── Hero ── */
+    .events-hero {
+      background: #F0F4FF;
+      padding: 64px 32px;
+      text-align: center;
+    }
+    .events-hero h1 {
+      font-size: 2.75rem;
+      font-weight: 800;
+      color: #111827;
+      margin-bottom: 16px;
+    }
+    .events-hero p {
+      font-size: 1.125rem;
+      color: #6B7280;
+      max-width: 540px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    /* ── Section headings ── */
+    .section-heading {
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: #111827;
+      margin-bottom: 32px;
+    }
+
+    /* ── Upcoming Releases ── */
+    .releases-section {
+      background: #fff;
+      padding: 64px 0;
+    }
+    .releases-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .release-card {
+      border: 1.5px solid #E5E7EB;
+      border-radius: 16px;
+      padding: 28px;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .release-card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+    .release-card h3 {
+      font-size: 1.125rem;
+      font-weight: 700;
+      color: #111827;
+    }
+    .badge {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      padding: 3px 9px;
+      border-radius: 20px;
+      white-space: nowrap;
+    }
+    .badge-upcoming {
+      background: #EFF6FF;
+      color: #2563EB;
+    }
+    .badge-announced {
+      background: #F3F4F6;
+      color: #6B7280;
+    }
+    .release-date {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #6B7280;
+    }
+    .release-desc {
+      font-size: 0.9rem;
+      color: #6B7280;
+      line-height: 1.55;
+      flex: 1;
+    }
+    .btn-outline {
+      display: inline-block;
+      padding: 9px 18px;
+      border: 1.5px solid #D1D5DB;
+      border-radius: 8px;
+      background: #fff;
+      color: #374151;
+      font-size: 0.875rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: border-color 0.15s, background 0.15s;
+      text-align: center;
+      text-decoration: none;
+      width: 100%;
+    }
+    .btn-outline:hover {
+      border-color: #3B82F6;
+      color: #2563EB;
+      background: #EFF6FF;
+    }
+
+    /* ── Events List ── */
+    .events-list-section {
+      background: #F8F9FB;
+      padding: 64px 0;
+    }
+    .event-item {
+      background: #fff;
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: flex-start;
+      gap: 24px;
+    }
+    .event-item:last-child { margin-bottom: 0; }
+
+    .event-date-box {
+      background: #3B82F6;
+      color: #fff;
+      border-radius: 10px;
+      width: 64px;
+      min-width: 64px;
+      text-align: center;
+      padding: 10px 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2px;
+    }
+    .event-date-box .day {
+      font-size: 1.4rem;
+      font-weight: 800;
+      line-height: 1;
+    }
+    .event-date-box .month {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      opacity: 0.85;
+    }
+
+    .event-info {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .event-name {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #111827;
+    }
+    .event-location {
+      font-size: 0.85rem;
+      color: #9CA3AF;
+      font-weight: 500;
+    }
+    .event-desc {
+      font-size: 0.875rem;
+      color: #6B7280;
+      line-height: 1.5;
+      margin-top: 4px;
+    }
+
+    .event-action {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 8px;
+      min-width: 120px;
+    }
+    .btn-register {
+      display: inline-block;
+      padding: 9px 18px;
+      border-radius: 8px;
+      background: #F3F4F6;
+      color: #374151;
+      font-size: 0.875rem;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      text-decoration: none;
+      transition: background 0.15s;
+      white-space: nowrap;
+    }
+    .btn-register:hover { background: #E5E7EB; }
+    .btn-register-primary {
+      background: #3B82F6;
+      color: #fff;
+    }
+    .btn-register-primary:hover { background: #2563EB; }
+    .badge-virtual {
+      background: #ECFDF5;
+      color: #059669;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      padding: 3px 9px;
+      border-radius: 20px;
+      display: inline-block;
+    }
+    .btn-watch {
+      display: inline-block;
+      padding: 9px 18px;
+      border-radius: 8px;
+      background: #F3F4F6;
+      color: #374151;
+      font-size: 0.875rem;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: background 0.15s;
+    }
+    .btn-watch:hover { background: #E5E7EB; }
+
+    /* ── Past Events ── */
+    .past-events-section {
+      background: #fff;
+      padding: 64px 0;
+    }
+    .past-event-row {
+      background: #F8F9FB;
+      border-radius: 8px;
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      margin-bottom: 12px;
+    }
+    .past-event-row:last-child { margin-bottom: 0; }
+    .past-event-date {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #9CA3AF;
+      min-width: 80px;
+    }
+    .past-event-name {
+      font-size: 0.925rem;
+      font-weight: 700;
+      color: #374151;
+      flex: 1;
+    }
+    .past-event-location {
+      font-size: 0.85rem;
+      color: #9CA3AF;
+      min-width: 140px;
+    }
+    .past-event-link {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: #2563EB;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .past-event-link:hover { text-decoration: underline; }
+
+    /* ── CTA ── */
+    .events-cta-section {
+      padding: 64px 0;
+    }
+    .events-cta-card {
+      background: linear-gradient(135deg, #3B82F6 0%, #6366F1 100%);
+      border-radius: 20px;
+      padding: 56px 32px;
+      text-align: center;
+      color: #fff;
+    }
+    .events-cta-card h2 {
+      font-size: 2rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+    .events-cta-card p {
+      font-size: 1rem;
+      opacity: 0.85;
+      margin-bottom: 32px;
+    }
+    .cta-form {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .cta-form input[type="email"] {
+      padding: 12px 20px;
+      border-radius: 10px;
+      border: none;
+      font-size: 0.95rem;
+      width: 280px;
+      outline: none;
+      color: #111827;
+      font-family: 'Inter', sans-serif;
+    }
+    .cta-form input[type="email"]::placeholder { color: #9CA3AF; }
+    .btn-subscribe {
+      padding: 12px 24px;
+      border-radius: 10px;
+      background: #fff;
+      color: #2563EB;
+      font-size: 0.95rem;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      transition: opacity 0.15s;
+    }
+    .btn-subscribe:hover { opacity: 0.9; }
+
+    /* ── Responsive ── */
+    @media (max-width: 900px) {
+      .releases-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 640px) {
+      .releases-grid { grid-template-columns: 1fr; }
+      .events-hero h1 { font-size: 2rem; }
+      .event-item { flex-wrap: wrap; }
+      .event-action { min-width: auto; align-items: flex-start; }
+      .past-event-row { flex-wrap: wrap; gap: 8px; }
+      .past-event-location { min-width: auto; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <div class="logo-icon"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect width="28" height="28" rx="6" fill="#3B82F6"/><circle cx="14" cy="14" r="6" fill="white" opacity="0.9"/><circle cx="14" cy="14" r="3" fill="#3B82F6"/></svg></div>
+        <span class="logo-text">DexVault</span>
+      </a>
+      <div class="nav-links">
+        <a href="features.html">Features</a>
+        <a href="index.html#pricing">Pricing</a>
+        <a href="index.html#community">Community</a>
+      </div>
+      <div class="nav-right">
+        <a href="home.html" class="nav-login">Log In</a>
+        <a href="home.html" class="nav-signup">Sign Up <span>&rarr;</span></a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 1. Hero -->
+  <section class="events-hero">
+    <h1>Events &amp; Releases</h1>
+    <p>Tournaments, trading meetups, and upcoming set releases — all in one place.</p>
+  </section>
+
+  <!-- 2. Upcoming Set Releases -->
+  <section class="releases-section">
+    <div class="page-wrap">
+      <h2 class="section-heading">Upcoming Set Releases</h2>
+      <div class="releases-grid">
+
+        <!-- Stellar Crown -->
+        <div class="release-card">
+          <div class="release-card-header">
+            <h3>Stellar Crown</h3>
+            <span class="badge badge-upcoming">UPCOMING</span>
+          </div>
+          <p class="release-date">Release: May 3, 2026</p>
+          <p class="release-desc">The latest expansion featuring Stellar-type Pokémon and new Tera mechanics.</p>
+          <a href="#" class="btn-outline">Set Reminder</a>
+        </div>
+
+        <!-- Twilight Masquerade -->
+        <div class="release-card">
+          <div class="release-card-header">
+            <h3>Twilight Masquerade</h3>
+            <span class="badge badge-upcoming">UPCOMING</span>
+          </div>
+          <p class="release-date">Release: June 14, 2026</p>
+          <p class="release-desc">Ancient and Future Pokémon return with powerful new Paradox cards.</p>
+          <a href="#" class="btn-outline">Set Reminder</a>
+        </div>
+
+        <!-- Shrouded Fable -->
+        <div class="release-card">
+          <div class="release-card-header">
+            <h3>Shrouded Fable</h3>
+            <span class="badge badge-announced">ANNOUNCED</span>
+          </div>
+          <p class="release-date">Release: August 2, 2026</p>
+          <p class="release-desc">Mysterious Pokémon from the Unova region make their debut in this special set.</p>
+          <a href="#" class="btn-outline">Set Reminder</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Upcoming Events -->
+  <section class="events-list-section">
+    <div class="page-wrap">
+      <h2 class="section-heading">Upcoming Events</h2>
+
+      <!-- Event 1 -->
+      <div class="event-item">
+        <div class="event-date-box">
+          <span class="day">19</span>
+          <span class="month">Apr</span>
+        </div>
+        <div class="event-info">
+          <span class="event-name">DexVault Trading Meetup — NYC</span>
+          <span class="event-location">New York, NY</span>
+          <p class="event-desc">Monthly in-person trading event. Bring cards, trade fairly, meet collectors.</p>
+        </div>
+        <div class="event-action">
+          <a href="#" class="btn-register">Register</a>
+        </div>
+      </div>
+
+      <!-- Event 2 -->
+      <div class="event-item">
+        <div class="event-date-box">
+          <span class="day">26</span>
+          <span class="month">Apr</span>
+        </div>
+        <div class="event-info">
+          <span class="event-name">Base Set Anniversary Stream</span>
+          <span class="event-location">Online</span>
+          <p class="event-desc">Live stream celebrating 27 years of the Base Set with giveaways and pack openings.</p>
+        </div>
+        <div class="event-action">
+          <span class="badge-virtual">VIRTUAL</span>
+          <a href="#" class="btn-watch">Watch Live</a>
+        </div>
+      </div>
+
+      <!-- Event 3 -->
+      <div class="event-item">
+        <div class="event-date-box">
+          <span class="day">3</span>
+          <span class="month">May</span>
+        </div>
+        <div class="event-info">
+          <span class="event-name">Stellar Crown Launch Event</span>
+          <span class="event-location">Multiple Locations</span>
+          <p class="event-desc">Celebrate the launch of Stellar Crown at a store near you with DexVault.</p>
+        </div>
+        <div class="event-action">
+          <a href="#" class="btn-register">Register</a>
+        </div>
+      </div>
+
+      <!-- Event 4 -->
+      <div class="event-item">
+        <div class="event-date-box">
+          <span class="day">17</span>
+          <span class="month">May</span>
+        </div>
+        <div class="event-info">
+          <span class="event-name">PSA Grading Submission Day</span>
+          <span class="event-location">Los Angeles, CA</span>
+          <p class="event-desc">Group submission event — submit your cards together and save on shipping.</p>
+        </div>
+        <div class="event-action">
+          <a href="#" class="btn-register">Register</a>
+        </div>
+      </div>
+
+      <!-- Event 5 -->
+      <div class="event-item">
+        <div class="event-date-box">
+          <span class="day">1</span>
+          <span class="month">Jun</span>
+        </div>
+        <div class="event-info">
+          <span class="event-name">DexVault Collector Summit 2026</span>
+          <span class="event-location">San Francisco, CA</span>
+          <p class="event-desc">Our annual in-person summit. Panels, trading, giveaways, and exclusive merch.</p>
+        </div>
+        <div class="event-action">
+          <a href="#" class="btn-register btn-register-primary">Register</a>
+        </div>
+      </div>
+
+      <!-- Event 6 -->
+      <div class="event-item">
+        <div class="event-date-box">
+          <span class="day">14</span>
+          <span class="month">Jun</span>
+        </div>
+        <div class="event-info">
+          <span class="event-name">Twilight Masquerade Launch Stream</span>
+          <span class="event-location">Online</span>
+          <p class="event-desc">Live pack opening marathon and price tracking as the new set hits shelves.</p>
+        </div>
+        <div class="event-action">
+          <span class="badge-virtual">VIRTUAL</span>
+          <a href="#" class="btn-watch">Watch Live</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 4. Past Events -->
+  <section class="past-events-section">
+    <div class="page-wrap">
+      <h2 class="section-heading">Past Events</h2>
+
+      <div class="past-event-row">
+        <span class="past-event-date">Mar 15, 2026</span>
+        <span class="past-event-name">DexVault Trading Meetup — NYC</span>
+        <span class="past-event-location">New York, NY</span>
+        <a href="#" class="past-event-link">Watch Recording</a>
+      </div>
+
+      <div class="past-event-row">
+        <span class="past-event-date">Feb 22, 2026</span>
+        <span class="past-event-name">Paldean Fates Launch Stream</span>
+        <span class="past-event-location">Online</span>
+        <a href="#" class="past-event-link">Watch Recording</a>
+      </div>
+
+      <div class="past-event-row">
+        <span class="past-event-date">Jan 11, 2026</span>
+        <span class="past-event-name">PSA Grading Submission Day</span>
+        <span class="past-event-location">Los Angeles, CA</span>
+        <a href="#" class="past-event-link">Watch Recording</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 5. CTA -->
+  <section class="events-cta-section">
+    <div class="page-wrap">
+      <div class="events-cta-card">
+        <h2>Never Miss an Event</h2>
+        <p>Get notified about upcoming releases and meetups.</p>
+        <div class="cta-form">
+          <input type="email" placeholder="your@email.com">
+          <button class="btn-subscribe">Subscribe</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+              <rect width="28" height="28" rx="6" fill="#3B82F6"/>
+              <circle cx="14" cy="14" r="6" fill="white" opacity="0.9"/>
+              <circle cx="14" cy="14" r="3" fill="#3B82F6"/>
+            </svg>
+            <span>DexVault</span>
+          </div>
+          <p class="footer-tagline">The ultimate operating system for Pokémon card collectors.</p>
+        </div>
+        <div class="footer-links">
+          <div class="footer-col">
+            <h4>Product</h4>
+            <ul>
+              <li><a href="#">Features</a></li>
+              <li><a href="#">Pricing</a></li>
+              <li><a href="#">Scan</a></li>
+              <li><a href="#">Marketplace</a></li>
+              <li><a href="#">Analytics</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Community</h4>
+            <ul>
+              <li><a href="#">Twitter</a></li>
+              <li><a href="#">Blog</a></li>
+              <li><a href="#">Showcase</a></li>
+              <li><a href="events.html">Events</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Company</h4>
+            <ul>
+              <li><a href="#">About</a></li>
+              <li><a href="#">Press</a></li>
+              <li><a href="#">Privacy</a></li>
+              <li><a href="#">Terms</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 DexVault. All rights reserved.</p>
+        <div class="footer-socials">
+          <a href="#">Twitter</a>
+          <a href="#">Instagram</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

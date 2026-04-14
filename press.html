@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DexVault - Press</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    /* ── Shared layout ── */
+    .press-section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    /* ── Hero ── */
+    .press-hero {
+      background: #F0F4FF;
+      padding: 64px 32px;
+      text-align: center;
+    }
+    .press-hero h1 {
+      font-size: 48px;
+      font-weight: 800;
+      color: #111827;
+      margin: 0 0 20px;
+      line-height: 1.15;
+    }
+    .press-hero p {
+      font-size: 18px;
+      color: #6B7280;
+      max-width: 580px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+    .press-hero a {
+      color: #3B82F6;
+      text-decoration: none;
+    }
+    .press-hero a:hover {
+      text-decoration: underline;
+    }
+
+    /* ── Company Facts ── */
+    .press-facts {
+      background: #fff;
+      padding: 64px 0;
+    }
+    .press-facts h2 {
+      font-size: 32px;
+      font-weight: 800;
+      color: #111827;
+      margin: 0 0 40px;
+    }
+    .facts-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: start;
+    }
+    /* Definition list */
+    .facts-dl {
+      margin: 0;
+      padding: 0;
+    }
+    .facts-dl dt {
+      font-size: 13px;
+      font-weight: 700;
+      color: #111827;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 4px;
+    }
+    .facts-dl dd {
+      font-size: 16px;
+      color: #6B7280;
+      margin: 0 0 24px;
+      padding: 0;
+      line-height: 1.5;
+    }
+    .facts-dl dd:last-child {
+      margin-bottom: 0;
+    }
+    /* Stat boxes */
+    .facts-stats {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .fact-stat-box {
+      background: #F8F9FB;
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 12px;
+    }
+    .fact-stat-box:last-child {
+      margin-bottom: 0;
+    }
+    .fact-stat-number {
+      font-size: 28px;
+      font-weight: 800;
+      color: #111827;
+      margin: 0 0 4px;
+      line-height: 1.2;
+    }
+    .fact-stat-label {
+      font-size: 14px;
+      color: #6B7280;
+      margin: 0;
+    }
+
+    /* ── Press Coverage ── */
+    .press-coverage {
+      background: #F8F9FB;
+      padding: 64px 0;
+    }
+    .press-coverage h2 {
+      font-size: 32px;
+      font-weight: 800;
+      color: #111827;
+      margin: 0 0 40px;
+    }
+    .press-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .press-card {
+      background: #fff;
+      border: 1px solid #E5E7EB;
+      border-radius: 12px;
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+    }
+    .press-pub {
+      font-size: 20px;
+      font-weight: 700;
+      color: #111827;
+      margin: 0 0 16px;
+    }
+    .press-quote {
+      font-size: 15px;
+      color: #374151;
+      line-height: 1.7;
+      font-style: italic;
+      margin: 0 0 20px;
+      flex: 1;
+    }
+    .press-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: auto;
+    }
+    .press-date {
+      font-size: 13px;
+      color: #9CA3AF;
+      font-weight: 500;
+    }
+    .press-link {
+      font-size: 13px;
+      font-weight: 600;
+      color: #3B82F6;
+      text-decoration: none;
+    }
+    .press-link:hover {
+      text-decoration: underline;
+    }
+
+    /* ── Press Releases ── */
+    .press-releases {
+      background: #fff;
+      padding: 64px 0;
+    }
+    .press-releases h2 {
+      font-size: 32px;
+      font-weight: 800;
+      color: #111827;
+      margin: 0 0 32px;
+    }
+    .press-release-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .press-release-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #F3F4F6;
+      padding: 20px 0;
+      gap: 16px;
+    }
+    .press-release-item:last-child {
+      border-bottom: none;
+    }
+    .pr-left {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .pr-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: #111827;
+      margin: 0;
+      line-height: 1.5;
+    }
+    .pr-date {
+      font-size: 13px;
+      color: #9CA3AF;
+      margin: 0;
+    }
+    .pr-download {
+      font-size: 13px;
+      font-weight: 600;
+      color: #3B82F6;
+      text-decoration: none;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .pr-download:hover {
+      text-decoration: underline;
+    }
+
+    /* ── Media Kit CTA ── */
+    .press-kit-wrap {
+      padding: 64px 32px;
+    }
+    .press-kit {
+      max-width: 1100px;
+      margin: 0 auto;
+      background: linear-gradient(135deg, #3B82F6 0%, #6366F1 100%);
+      border-radius: 20px;
+      padding: 48px 40px;
+      text-align: center;
+    }
+    .press-kit h2 {
+      font-size: 32px;
+      font-weight: 800;
+      color: #fff;
+      margin: 0 0 12px;
+    }
+    .press-kit p {
+      font-size: 16px;
+      color: rgba(255,255,255,0.85);
+      margin: 0 0 28px;
+      line-height: 1.6;
+    }
+    .press-kit-btn {
+      display: inline-block;
+      background: #fff;
+      color: #3B82F6;
+      font-size: 16px;
+      font-weight: 700;
+      padding: 14px 32px;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .press-kit-btn:hover {
+      opacity: 0.9;
+    }
+    .press-kit-contact {
+      margin: 20px 0 0;
+      font-size: 14px;
+      color: rgba(255,255,255,0.75);
+    }
+    .press-kit-contact a {
+      color: rgba(255,255,255,0.95);
+      text-decoration: underline;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 900px) {
+      .press-cards-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 768px) {
+      .press-hero h1 { font-size: 32px; }
+      .facts-grid { grid-template-columns: 1fr; gap: 40px; }
+      .press-cards-grid { grid-template-columns: 1fr; }
+      .press-release-item { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <div class="logo-icon"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect width="28" height="28" rx="6" fill="#3B82F6"/><circle cx="14" cy="14" r="6" fill="white" opacity="0.9"/><circle cx="14" cy="14" r="3" fill="#3B82F6"/></svg></div>
+        <span class="logo-text">DexVault</span>
+      </a>
+      <div class="nav-links">
+        <a href="features.html">Features</a>
+        <a href="index.html#pricing">Pricing</a>
+        <a href="index.html#community">Community</a>
+      </div>
+      <div class="nav-right">
+        <a href="home.html" class="nav-login">Log In</a>
+        <a href="home.html" class="nav-signup">Sign Up <span>&rarr;</span></a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 1. Hero -->
+  <section class="press-hero">
+    <div style="max-width:1100px;margin:0 auto;padding:0 32px;">
+      <h1>Press &amp; Media</h1>
+      <p>Resources for journalists and media covering DexVault. For press inquiries: <a href="mailto:press@dexvault.com">press@dexvault.com</a></p>
+    </div>
+  </section>
+
+  <!-- 2. Company Facts -->
+  <section class="press-facts">
+    <div class="press-section">
+      <h2>Company at a Glance</h2>
+      <div class="facts-grid">
+
+        <!-- Left: definition list -->
+        <div>
+          <dl class="facts-dl">
+            <dt>Founded</dt>
+            <dd>2024</dd>
+
+            <dt>Headquarters</dt>
+            <dd>San Francisco, CA</dd>
+
+            <dt>Employees</dt>
+            <dd>28</dd>
+
+            <dt>Funding</dt>
+            <dd>Series A ($18M total)</dd>
+
+            <dt>CEO</dt>
+            <dd>Alex Chen</dd>
+          </dl>
+        </div>
+
+        <!-- Right: stat boxes -->
+        <div class="facts-stats">
+          <div class="fact-stat-box">
+            <p class="fact-stat-number">50K+</p>
+            <p class="fact-stat-label">Active Collectors</p>
+          </div>
+          <div class="fact-stat-box">
+            <p class="fact-stat-number">$180M+</p>
+            <p class="fact-stat-label">Portfolio Value Tracked</p>
+          </div>
+          <div class="fact-stat-box">
+            <p class="fact-stat-number">2M+</p>
+            <p class="fact-stat-label">Cards in Database</p>
+          </div>
+          <div class="fact-stat-box">
+            <p class="fact-stat-number">99.2%</p>
+            <p class="fact-stat-label">AI Scan Accuracy</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Press Coverage -->
+  <section class="press-coverage">
+    <div class="press-section">
+      <h2>In the Press</h2>
+      <div class="press-cards-grid">
+
+        <div class="press-card">
+          <p class="press-pub">TechCrunch</p>
+          <p class="press-quote">"DexVault is what the Pokémon collecting world has been waiting for — Bloomberg for card collectors."</p>
+          <div class="press-meta">
+            <span class="press-date">March 2026</span>
+            <a href="#" class="press-link">Read Article &rarr;</a>
+          </div>
+        </div>
+
+        <div class="press-card">
+          <p class="press-pub">The Verge</p>
+          <p class="press-quote">"Incredibly accurate AI scanning and a beautifully designed interface make DexVault the must-have app for serious collectors."</p>
+          <div class="press-meta">
+            <span class="press-date">February 2026</span>
+            <a href="#" class="press-link">Read Article &rarr;</a>
+          </div>
+        </div>
+
+        <div class="press-card">
+          <p class="press-pub">Kotaku</p>
+          <p class="press-quote">"Finally, an app that takes Pokémon card collecting seriously as both a hobby and an investment."</p>
+          <div class="press-meta">
+            <span class="press-date">January 2026</span>
+            <a href="#" class="press-link">Read Article &rarr;</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Press Releases -->
+  <section class="press-releases">
+    <div class="press-section">
+      <h2>Press Releases</h2>
+      <ul class="press-release-list">
+
+        <li class="press-release-item">
+          <div class="pr-left">
+            <p class="pr-title">DexVault Raises $13M Series A to Expand AI Card Recognition</p>
+            <p class="pr-date">Apr 1, 2026</p>
+          </div>
+          <a href="#" class="pr-download">Download PDF</a>
+        </li>
+
+        <li class="press-release-item">
+          <div class="pr-left">
+            <p class="pr-title">DexVault Reaches 50,000 Collector Milestone</p>
+            <p class="pr-date">Mar 15, 2026</p>
+          </div>
+          <a href="#" class="pr-download">Download PDF</a>
+        </li>
+
+        <li class="press-release-item">
+          <div class="pr-left">
+            <p class="pr-title">DexVault Launches AI-Powered Grading Estimation Feature</p>
+            <p class="pr-date">Feb 10, 2026</p>
+          </div>
+          <a href="#" class="pr-download">Download PDF</a>
+        </li>
+
+        <li class="press-release-item">
+          <div class="pr-left">
+            <p class="pr-title">DexVault Exits Beta, Launches Free Tier for All Collectors</p>
+            <p class="pr-date">Jan 5, 2026</p>
+          </div>
+          <a href="#" class="pr-download">Download PDF</a>
+        </li>
+
+      </ul>
+    </div>
+  </section>
+
+  <!-- 5. Media Kit CTA -->
+  <div class="press-kit-wrap">
+    <div class="press-kit">
+      <h2>Download Media Kit</h2>
+      <p>Logos, screenshots, founder photos, and brand guidelines.</p>
+      <a href="#" class="press-kit-btn">Download Media Kit</a>
+      <p class="press-kit-contact">For press inquiries, contact <a href="mailto:press@dexvault.com">press@dexvault.com</a></p>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+              <rect width="28" height="28" rx="6" fill="#3B82F6"/>
+              <circle cx="14" cy="14" r="6" fill="white" opacity="0.9"/>
+              <circle cx="14" cy="14" r="3" fill="#3B82F6"/>
+            </svg>
+            <span>DexVault</span>
+          </div>
+          <p class="footer-tagline">The ultimate operating system for Pokémon card collectors.</p>
+        </div>
+        <div class="footer-links">
+          <div class="footer-col">
+            <h4>Product</h4>
+            <ul>
+              <li><a href="features.html">Features</a></li>
+              <li><a href="pricing.html">Pricing</a></li>
+              <li><a href="home.html">Scan</a></li>
+              <li><a href="home.html">Marketplace</a></li>
+              <li><a href="home.html">Analytics</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Community</h4>
+            <ul>
+              <li><a href="#">Twitter</a></li>
+              <li><a href="blog.html">Blog</a></li>
+              <li><a href="showcase.html">Showcase</a></li>
+              <li><a href="events.html">Events</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Company</h4>
+            <ul>
+              <li><a href="about.html">About</a></li>
+              <li><a href="press.html">Press</a></li>
+              <li><a href="privacy.html">Privacy</a></li>
+              <li><a href="terms.html">Terms</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 DexVault. All rights reserved.</p>
+        <div class="footer-socials">
+          <a href="#">Twitter</a>
+          <a href="#">Instagram</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

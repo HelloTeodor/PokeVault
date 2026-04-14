@@ -1,0 +1,1086 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DexVault - Features</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    /* ── Page-specific styles ── */
+
+    .features-hero {
+      background: #F0F4FF;
+      padding: 96px 32px 80px;
+      text-align: center;
+    }
+    .features-hero-inner {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+    .features-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #EFF6FF;
+      border: 1px solid #BFDBFE;
+      color: #2563EB;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: 100px;
+      margin-bottom: 24px;
+    }
+    .features-hero h1 {
+      font-size: clamp(36px, 5vw, 56px);
+      font-weight: 900;
+      color: #0F172A;
+      line-height: 1.1;
+      margin: 0 0 20px;
+      letter-spacing: -1.5px;
+    }
+    .features-hero p {
+      font-size: 18px;
+      color: #64748B;
+      line-height: 1.7;
+      margin: 0 0 36px;
+    }
+    .features-hero-btns {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* ── Feature detail sections ── */
+
+    .feature-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+      padding: 80px 0;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .feature-section.reverse {
+      direction: rtl;
+    }
+    .feature-section.reverse > * {
+      direction: ltr;
+    }
+
+    .feature-detail-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+    .feature-detail-icon.green  { background: #F0FDF4; }
+    .feature-detail-icon.blue   { background: #EFF6FF; }
+    .feature-detail-icon.purple { background: #F5F3FF; }
+    .feature-detail-icon.red    { background: #FFF1F2; }
+    .feature-detail-icon.yellow { background: #FEFCE8; }
+    .feature-detail-icon.pink   { background: #FFF1F2; }
+
+    .feature-text h2 {
+      font-size: 32px;
+      font-weight: 800;
+      color: #0F172A;
+      margin: 0 0 14px;
+      letter-spacing: -0.5px;
+    }
+    .feature-text > p {
+      font-size: 16px;
+      color: #64748B;
+      line-height: 1.75;
+      margin: 0 0 24px;
+    }
+    .feature-bullets {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .feature-bullets li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 15px;
+      color: #374151;
+      font-weight: 500;
+    }
+    .feature-bullets li::before {
+      content: '';
+      display: inline-block;
+      width: 18px;
+      height: 18px;
+      min-width: 18px;
+      background: #22C55E;
+      border-radius: 50%;
+      background-image: url("data:image/svg+xml,%3Csvg width='10' height='8' viewBox='0 0 10 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 4L3.5 6.5L9 1' stroke='white' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: center;
+      margin-top: 2px;
+    }
+
+    /* Mockup boxes */
+    .mockup-box {
+      background: #F3F4F6;
+      border-radius: 16px;
+      padding: 32px;
+      min-height: 280px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    /* Scanner mockup */
+    .scan-mockup-frame {
+      background: #1E293B;
+      border-radius: 14px;
+      padding: 24px;
+      color: white;
+    }
+    .scan-viewfinder {
+      width: 100%;
+      height: 140px;
+      background: #0F172A;
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 16px;
+      position: relative;
+      overflow: hidden;
+    }
+    .scan-corners::before,
+    .scan-corners::after {
+      content: '';
+      position: absolute;
+      width: 28px;
+      height: 28px;
+      border-color: #3B82F6;
+      border-style: solid;
+    }
+    .scan-corners::before { top: 12px; left: 12px; border-width: 3px 0 0 3px; border-radius: 4px 0 0 0; }
+    .scan-corners::after  { bottom: 12px; right: 12px; border-width: 0 3px 3px 0; border-radius: 0 0 4px 0; }
+    .scan-line {
+      width: 70%;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #3B82F6, transparent);
+      animation: scanLine 2s ease-in-out infinite;
+    }
+    @keyframes scanLine {
+      0%, 100% { transform: translateY(-30px); opacity: 0.4; }
+      50% { transform: translateY(30px); opacity: 1; }
+    }
+    .scan-label {
+      font-size: 12px;
+      color: #94A3B8;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    .scan-result {
+      background: #0F172A;
+      border-radius: 10px;
+      padding: 14px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .scan-result-name {
+      font-weight: 700;
+      font-size: 15px;
+      color: #F1F5F9;
+    }
+    .scan-result-set {
+      font-size: 12px;
+      color: #64748B;
+      margin-top: 2px;
+    }
+    .scan-result-right {
+      text-align: right;
+    }
+    .scan-result-price {
+      font-weight: 800;
+      font-size: 18px;
+      color: #22C55E;
+    }
+    .scan-result-grade {
+      font-size: 11px;
+      color: #94A3B8;
+      margin-top: 2px;
+    }
+
+    /* Chart mockup */
+    .chart-mockup {
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+    }
+    .chart-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 20px;
+    }
+    .chart-card-name {
+      font-size: 14px;
+      font-weight: 700;
+      color: #0F172A;
+    }
+    .chart-price-big {
+      font-size: 26px;
+      font-weight: 800;
+      color: #0F172A;
+    }
+    .chart-change-positive {
+      font-size: 13px;
+      color: #22C55E;
+      font-weight: 600;
+    }
+    .chart-tabs {
+      display: flex;
+      gap: 4px;
+      margin-bottom: 16px;
+    }
+    .chart-tab {
+      font-size: 11px;
+      font-weight: 600;
+      color: #94A3B8;
+      padding: 3px 8px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .chart-tab.active {
+      background: #EFF6FF;
+      color: #3B82F6;
+    }
+    .chart-svg-wrap {
+      width: 100%;
+      height: 80px;
+    }
+
+    /* Portfolio mockup */
+    .portfolio-mockup {
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+    }
+    .portfolio-total-label {
+      font-size: 12px;
+      color: #94A3B8;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 4px;
+    }
+    .portfolio-total-val {
+      font-size: 30px;
+      font-weight: 800;
+      color: #0F172A;
+      margin-bottom: 2px;
+    }
+    .portfolio-change {
+      font-size: 13px;
+      color: #22C55E;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+    .portfolio-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0;
+      border-bottom: 1px solid #F1F5F9;
+    }
+    .portfolio-row:last-child { border-bottom: none; }
+    .portfolio-row-name {
+      font-size: 13px;
+      font-weight: 600;
+      color: #0F172A;
+    }
+    .portfolio-row-set {
+      font-size: 11px;
+      color: #94A3B8;
+    }
+    .portfolio-row-val {
+      font-size: 14px;
+      font-weight: 700;
+      color: #0F172A;
+    }
+    .portfolio-row-roi {
+      font-size: 12px;
+      color: #22C55E;
+      font-weight: 600;
+    }
+
+    /* Social mockup */
+    .social-mockup {
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+    }
+    .feed-item {
+      display: flex;
+      gap: 12px;
+      padding: 12px 0;
+      border-bottom: 1px solid #F1F5F9;
+    }
+    .feed-item:last-child { border-bottom: none; }
+    .feed-avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+    .feed-body-name {
+      font-size: 13px;
+      font-weight: 700;
+      color: #0F172A;
+    }
+    .feed-body-text {
+      font-size: 12px;
+      color: #64748B;
+      margin-top: 2px;
+    }
+    .feed-time {
+      font-size: 11px;
+      color: #CBD5E1;
+      margin-left: auto;
+      white-space: nowrap;
+    }
+
+    /* Grading mockup */
+    .grading-mockup {
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+    }
+    .grading-header-label {
+      font-size: 12px;
+      color: #94A3B8;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 14px;
+    }
+    .submission-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 0;
+      border-bottom: 1px solid #F1F5F9;
+    }
+    .submission-item:last-child { border-bottom: none; }
+    .submission-badge {
+      font-size: 10px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 100px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .badge-psa  { background: #EFF6FF; color: #2563EB; }
+    .badge-bgs  { background: #FFF7ED; color: #EA580C; }
+    .badge-cgc  { background: #F0FDF4; color: #16A34A; }
+    .submission-name {
+      font-size: 13px;
+      font-weight: 600;
+      color: #0F172A;
+      flex: 1;
+    }
+    .submission-status {
+      font-size: 12px;
+      font-weight: 600;
+      padding: 2px 10px;
+      border-radius: 100px;
+    }
+    .status-shipped  { background: #F0FDF4; color: #16A34A; }
+    .status-grading  { background: #EFF6FF; color: #2563EB; }
+    .status-received { background: #FFF7ED; color: #EA580C; }
+
+    /* Collection mockup */
+    .collection-mockup {
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+    }
+    .collection-filter-row {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+    }
+    .filter-chip {
+      font-size: 11px;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 100px;
+      background: #F1F5F9;
+      color: #64748B;
+    }
+    .filter-chip.active {
+      background: #3B82F6;
+      color: white;
+    }
+    .set-progress-item {
+      margin-bottom: 14px;
+    }
+    .set-progress-top {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 6px;
+    }
+    .set-progress-name {
+      font-size: 13px;
+      font-weight: 600;
+      color: #0F172A;
+    }
+    .set-progress-pct {
+      font-size: 12px;
+      font-weight: 700;
+      color: #3B82F6;
+    }
+    .progress-bar-wrap {
+      background: #F1F5F9;
+      border-radius: 100px;
+      height: 6px;
+      overflow: hidden;
+    }
+    .progress-bar-fill {
+      height: 100%;
+      border-radius: 100px;
+      background: linear-gradient(90deg, #3B82F6, #6366F1);
+    }
+
+    /* Stats bar */
+    .stats-bar {
+      background: white;
+      border-top: 1px solid #F3F4F6;
+      border-bottom: 1px solid #F3F4F6;
+      padding: 48px 32px;
+    }
+    .stats-bar-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px;
+      text-align: center;
+    }
+    .stats-bar-item .stat-number {
+      font-size: 40px;
+      font-weight: 900;
+      color: #0F172A;
+      letter-spacing: -1px;
+    }
+    .stats-bar-item .stat-label {
+      font-size: 14px;
+      color: #94A3B8;
+      font-weight: 500;
+      margin-top: 4px;
+    }
+
+    /* CTA section */
+    .features-cta {
+      padding: 80px 32px;
+      background: linear-gradient(135deg, #1D4ED8 0%, #7C3AED 100%);
+      text-align: center;
+    }
+    .features-cta-card {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 24px;
+      padding: 64px 48px;
+      max-width: 700px;
+      margin: 0 auto;
+      backdrop-filter: blur(4px);
+    }
+    .features-cta-card h2 {
+      font-size: 36px;
+      font-weight: 800;
+      color: white;
+      margin: 0 0 16px;
+      letter-spacing: -0.5px;
+    }
+    .features-cta-card p {
+      font-size: 17px;
+      color: rgba(255,255,255,0.75);
+      margin: 0 0 32px;
+      line-height: 1.6;
+    }
+    .btn-white {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: white;
+      color: #1D4ED8;
+      font-weight: 700;
+      font-size: 16px;
+      padding: 14px 32px;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    }
+    .btn-white:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .feature-section,
+      .feature-section.reverse {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        direction: ltr;
+        padding: 48px 0;
+      }
+      .stats-bar-inner {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .features-cta-card {
+        padding: 40px 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <div class="logo-icon"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect width="28" height="28" rx="6" fill="#3B82F6"/><circle cx="14" cy="14" r="6" fill="white" opacity="0.9"/><circle cx="14" cy="14" r="3" fill="#3B82F6"/></svg></div>
+        <span class="logo-text">DexVault</span>
+      </a>
+      <div class="nav-links">
+        <a href="features.html">Features</a>
+        <a href="index.html#pricing">Pricing</a>
+        <a href="index.html#community">Community</a>
+      </div>
+      <div class="nav-right">
+        <a href="home.html" class="nav-login">Log In</a>
+        <a href="home.html" class="nav-signup">Sign Up <span>&rarr;</span></a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="features-hero">
+    <div class="features-hero-inner">
+      <div class="features-badge">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1.5L8.3 5.1L12 5.6L9.3 8.2L10 12L7 10.3L4 12L4.7 8.2L2 5.6L5.7 5.1L7 1.5Z" fill="#3B82F6"/></svg>
+        Everything you need
+      </div>
+      <h1>The Most Powerful Pokémon Card Platform</h1>
+      <p>Every tool a serious collector needs — from scanning your first card to managing a six-figure portfolio.</p>
+      <div class="features-hero-btns">
+        <a href="home.html" class="btn-primary">Start Free <span>&rarr;</span></a>
+        <a href="index.html#pricing" class="btn-secondary">See Pricing</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Feature 1: AI Card Scanner ── -->
+  <section style="border-bottom:1px solid #F3F4F6;">
+    <div style="max-width:1280px;margin:0 auto;padding:0 32px;">
+      <div class="feature-section">
+
+        <!-- Text -->
+        <div class="feature-text">
+          <div class="feature-detail-icon green">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#22C55E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+              <circle cx="12" cy="13" r="4"/>
+            </svg>
+          </div>
+          <h2>AI Card Scanner</h2>
+          <p>Point your camera at any card and our AI instantly identifies it, grades the condition, and pulls live market pricing — in under 2 seconds.</p>
+          <ul class="feature-bullets">
+            <li>99.2% identification accuracy</li>
+            <li>Supports all sets from 1999 to present</li>
+            <li>Auto-adds to your collection with one tap</li>
+            <li>Detects holo, reverse holo, and 1st edition variants</li>
+          </ul>
+          <a href="home.html" class="btn-primary">Try Scanning Free <span>&rarr;</span></a>
+        </div>
+
+        <!-- Visual -->
+        <div class="mockup-box">
+          <div class="scan-mockup-frame">
+            <div class="scan-viewfinder">
+              <div class="scan-corners"></div>
+              <div class="scan-line"></div>
+              <div class="scan-label">Scanning...</div>
+            </div>
+            <div class="scan-result">
+              <div>
+                <div class="scan-result-name">Charizard</div>
+                <div class="scan-result-set">Base Set · 1st Edition · Holo</div>
+              </div>
+              <div class="scan-result-right">
+                <div class="scan-result-price">$349.99</div>
+                <div class="scan-result-grade">PSA Grade Est: 8–9</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Feature 2: Live Price Tracking ── -->
+  <section style="border-bottom:1px solid #F3F4F6;">
+    <div style="max-width:1280px;margin:0 auto;padding:0 32px;">
+      <div class="feature-section reverse">
+
+        <!-- Text -->
+        <div class="feature-text">
+          <div class="feature-detail-icon blue">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/>
+              <polyline points="16 7 22 7 22 13"/>
+            </svg>
+          </div>
+          <h2>Live Price Tracking</h2>
+          <p>Real-time pricing data aggregated from eBay, TCGplayer, and Cardmarket. Get alerts when prices hit your targets.</p>
+          <ul class="feature-bullets">
+            <li>Prices update every 15 minutes</li>
+            <li>Historical price charts (1W, 1M, 1Y, All)</li>
+            <li>Price alerts via email and push notification</li>
+            <li>Compare prices across PSA, BGS, CGC grades</li>
+          </ul>
+        </div>
+
+        <!-- Visual -->
+        <div class="mockup-box">
+          <div class="chart-mockup">
+            <div class="chart-header">
+              <div>
+                <div class="chart-card-name">Charizard VMAX — Rainbow</div>
+                <div class="chart-price-big">$289.50</div>
+                <div class="chart-change-positive">&#9650; +$34.20 (13.4%) this month</div>
+              </div>
+            </div>
+            <div class="chart-tabs">
+              <span class="chart-tab">1W</span>
+              <span class="chart-tab active">1M</span>
+              <span class="chart-tab">1Y</span>
+              <span class="chart-tab">All</span>
+            </div>
+            <div class="chart-svg-wrap">
+              <svg viewBox="0 0 300 80" width="100%" height="100%" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <linearGradient id="chartGrad" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#3B82F6" stop-opacity="0.18"/>
+                    <stop offset="100%" stop-color="#3B82F6" stop-opacity="0"/>
+                  </linearGradient>
+                </defs>
+                <path d="M0 62 C20 58 40 65 60 55 C80 45 100 50 120 42 C140 34 160 40 180 30 C200 20 220 26 240 18 C260 10 280 14 300 8" fill="none" stroke="#3B82F6" stroke-width="2.5" stroke-linecap="round"/>
+                <path d="M0 62 C20 58 40 65 60 55 C80 45 100 50 120 42 C140 34 160 40 180 30 C200 20 220 26 240 18 C260 10 280 14 300 8 L300 80 L0 80 Z" fill="url(#chartGrad)"/>
+                <!-- data point circles -->
+                <circle cx="60" cy="55" r="3" fill="#3B82F6"/>
+                <circle cx="180" cy="30" r="3" fill="#3B82F6"/>
+                <circle cx="300" cy="8" r="4" fill="#3B82F6" stroke="white" stroke-width="2"/>
+              </svg>
+            </div>
+            <div style="display:flex;justify-content:space-between;margin-top:6px;">
+              <span style="font-size:11px;color:#CBD5E1;">Mar 1</span>
+              <span style="font-size:11px;color:#CBD5E1;">Mar 15</span>
+              <span style="font-size:11px;color:#CBD5E1;">Apr 1</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Feature 3: Portfolio Analytics ── -->
+  <section style="border-bottom:1px solid #F3F4F6;">
+    <div style="max-width:1280px;margin:0 auto;padding:0 32px;">
+      <div class="feature-section">
+
+        <!-- Text -->
+        <div class="feature-text">
+          <div class="feature-detail-icon purple">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="4" height="18" rx="1"/>
+              <rect x="10" y="8" width="4" height="13" rx="1"/>
+              <rect x="17" y="5" width="4" height="16" rx="1"/>
+            </svg>
+          </div>
+          <h2>Portfolio Analytics</h2>
+          <p>Track your collection value, ROI, and performance with Bloomberg-level insights. Know exactly what your collection is worth at any moment.</p>
+          <ul class="feature-bullets">
+            <li>Total portfolio value with daily/weekly change</li>
+            <li>ROI tracking per card and overall</li>
+            <li>Set completion percentage tracker</li>
+            <li>Most valuable cards ranking</li>
+          </ul>
+        </div>
+
+        <!-- Visual -->
+        <div class="mockup-box">
+          <div class="portfolio-mockup">
+            <div class="portfolio-total-label">Portfolio Value</div>
+            <div class="portfolio-total-val">$12,847.50</div>
+            <div class="portfolio-change">&#9650; +$1,243.20 (10.7%) this month</div>
+            <div class="portfolio-row">
+              <div>
+                <div class="portfolio-row-name">Charizard Base 1st Ed.</div>
+                <div class="portfolio-row-set">PSA 9</div>
+              </div>
+              <div style="text-align:right;">
+                <div class="portfolio-row-val">$4,200</div>
+                <div class="portfolio-row-roi">+82.6% ROI</div>
+              </div>
+            </div>
+            <div class="portfolio-row">
+              <div>
+                <div class="portfolio-row-name">Pikachu Illustrator</div>
+                <div class="portfolio-row-set">PSA 7</div>
+              </div>
+              <div style="text-align:right;">
+                <div class="portfolio-row-val">$3,100</div>
+                <div class="portfolio-row-roi">+44.2% ROI</div>
+              </div>
+            </div>
+            <div class="portfolio-row">
+              <div>
+                <div class="portfolio-row-name">Umbreon VMAX Alt Art</div>
+                <div class="portfolio-row-set">Raw NM</div>
+              </div>
+              <div style="text-align:right;">
+                <div class="portfolio-row-val">$890</div>
+                <div class="portfolio-row-roi">+21.8% ROI</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Feature 4: Social Trading ── -->
+  <section style="border-bottom:1px solid #F3F4F6;">
+    <div style="max-width:1280px;margin:0 auto;padding:0 32px;">
+      <div class="feature-section reverse">
+
+        <!-- Text -->
+        <div class="feature-text">
+          <div class="feature-detail-icon red">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#EF4444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+              <circle cx="9" cy="7" r="4"/>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+            </svg>
+          </div>
+          <h2>Social Trading</h2>
+          <p>Connect with 50,000+ collectors. Share your pulls, follow other trainers, and trade cards safely with built-in escrow protection.</p>
+          <ul class="feature-bullets">
+            <li>Escrow-protected trades</li>
+            <li>Collector reputation scores</li>
+            <li>Activity feed of the community</li>
+            <li>Follow your favorite collectors</li>
+          </ul>
+        </div>
+
+        <!-- Visual -->
+        <div class="mockup-box">
+          <div class="social-mockup">
+            <div style="font-size:12px;color:#94A3B8;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:8px;">Activity Feed</div>
+            <div class="feed-item">
+              <div class="feed-avatar" style="background:#FEF9C3;">&#x26A1;</div>
+              <div style="flex:1;">
+                <div class="feed-body-name">PikaCollector</div>
+                <div class="feed-body-text">Just pulled a Gold Charizard VSTAR! 🔥</div>
+              </div>
+              <div class="feed-time">2m ago</div>
+            </div>
+            <div class="feed-item">
+              <div class="feed-avatar" style="background:#DCFCE7;">&#x1F33F;</div>
+              <div style="flex:1;">
+                <div class="feed-body-name">BulbaTrader</div>
+                <div class="feed-body-text">Trade offer sent → Umbreon VMAX for Espeon VMAX</div>
+              </div>
+              <div class="feed-time">14m ago</div>
+            </div>
+            <div class="feed-item">
+              <div class="feed-avatar" style="background:#FCE7F3;">&#x2728;</div>
+              <div style="flex:1;">
+                <div class="feed-body-name">ShinyHunter</div>
+                <div class="feed-body-text">Completed Base Set — 102/102 ✅</div>
+              </div>
+              <div class="feed-time">1h ago</div>
+            </div>
+            <div class="feed-item" style="border-bottom:none;">
+              <div class="feed-avatar" style="background:#FEE2E2;">&#x1F525;</div>
+              <div style="flex:1;">
+                <div class="feed-body-name">TrainerAsh92</div>
+                <div class="feed-body-text">PSA 10 Blastoise just returned — NM!</div>
+              </div>
+              <div class="feed-time">3h ago</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Feature 5: Grading Manager ── -->
+  <section style="border-bottom:1px solid #F3F4F6;">
+    <div style="max-width:1280px;margin:0 auto;padding:0 32px;">
+      <div class="feature-section">
+
+        <!-- Text -->
+        <div class="feature-text">
+          <div class="feature-detail-icon yellow">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#EAB308" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+          </div>
+          <h2>Grading Manager</h2>
+          <p>Submit to PSA, BGS, or CGC and track every submission from sent to shipped — with automatic status updates.</p>
+          <ul class="feature-bullets">
+            <li>Track PSA, BGS &amp; CGC submissions</li>
+            <li>Automatic status notifications</li>
+            <li>See value impact of grading</li>
+            <li>Manage multiple submissions at once</li>
+          </ul>
+        </div>
+
+        <!-- Visual -->
+        <div class="mockup-box">
+          <div class="grading-mockup">
+            <div class="grading-header-label">Active Submissions</div>
+            <div class="submission-item">
+              <span class="submission-badge badge-psa">PSA</span>
+              <div>
+                <div class="submission-name">Charizard Base 1st Ed.</div>
+                <div style="font-size:11px;color:#94A3B8;">Submitted Mar 12</div>
+              </div>
+              <span class="submission-status status-grading">Grading</span>
+            </div>
+            <div class="submission-item">
+              <span class="submission-badge badge-bgs">BGS</span>
+              <div>
+                <div class="submission-name">Pikachu Illustrator</div>
+                <div style="font-size:11px;color:#94A3B8;">Submitted Feb 28</div>
+              </div>
+              <span class="submission-status status-shipped">Shipped</span>
+            </div>
+            <div class="submission-item">
+              <span class="submission-badge badge-cgc">CGC</span>
+              <div>
+                <div class="submission-name">Umbreon Gold Star</div>
+                <div style="font-size:11px;color:#94A3B8;">Submitted Apr 1</div>
+              </div>
+              <span class="submission-status status-received">Received</span>
+            </div>
+            <div class="submission-item" style="border-bottom:none;">
+              <span class="submission-badge badge-psa">PSA</span>
+              <div>
+                <div class="submission-name">Lugia Neo Genesis Holo</div>
+                <div style="font-size:11px;color:#94A3B8;">Submitted Apr 5</div>
+              </div>
+              <span class="submission-status status-received">Received</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Feature 6: Smart Collection ── -->
+  <section style="border-bottom:1px solid #F3F4F6;">
+    <div style="max-width:1280px;margin:0 auto;padding:0 32px;">
+      <div class="feature-section reverse">
+
+        <!-- Text -->
+        <div class="feature-text">
+          <div class="feature-detail-icon pink">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#F43F5E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+            </svg>
+          </div>
+          <h2>Smart Collection</h2>
+          <p>Organize your collection by set, binder, or custom tags. See exactly which cards you need to complete each set.</p>
+          <ul class="feature-bullets">
+            <li>Filter by type, rarity, set, condition</li>
+            <li>Set completion tracker</li>
+            <li>Custom binders and tags</li>
+            <li>Wishlist integration</li>
+          </ul>
+        </div>
+
+        <!-- Visual -->
+        <div class="mockup-box">
+          <div class="collection-mockup">
+            <div class="collection-filter-row">
+              <span class="filter-chip active">All</span>
+              <span class="filter-chip">Holo</span>
+              <span class="filter-chip">1st Ed.</span>
+              <span class="filter-chip">Gold</span>
+              <span class="filter-chip">Wishlist</span>
+            </div>
+            <div style="font-size:12px;color:#94A3B8;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:12px;">Set Completion</div>
+            <div class="set-progress-item">
+              <div class="set-progress-top">
+                <span class="set-progress-name">Base Set (1999)</span>
+                <span class="set-progress-pct">78%</span>
+              </div>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar-fill" style="width:78%;"></div>
+              </div>
+            </div>
+            <div class="set-progress-item">
+              <div class="set-progress-top">
+                <span class="set-progress-name">Jungle</span>
+                <span class="set-progress-pct">92%</span>
+              </div>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar-fill" style="width:92%;"></div>
+              </div>
+            </div>
+            <div class="set-progress-item">
+              <div class="set-progress-top">
+                <span class="set-progress-name">Crown Zenith</span>
+                <span class="set-progress-pct">41%</span>
+              </div>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar-fill" style="width:41%;"></div>
+              </div>
+            </div>
+            <div class="set-progress-item" style="margin-bottom:0;">
+              <div class="set-progress-top">
+                <span class="set-progress-name">Paldean Fates</span>
+                <span class="set-progress-pct">65%</span>
+              </div>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar-fill" style="width:65%;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Bar -->
+  <div class="stats-bar">
+    <div class="stats-bar-inner">
+      <div class="stats-bar-item">
+        <div class="stat-number">50K+</div>
+        <div class="stat-label">Collectors</div>
+      </div>
+      <div class="stats-bar-item">
+        <div class="stat-number">2M+</div>
+        <div class="stat-label">Cards Tracked</div>
+      </div>
+      <div class="stats-bar-item">
+        <div class="stat-number">$180M+</div>
+        <div class="stat-label">Portfolio Value</div>
+      </div>
+      <div class="stats-bar-item">
+        <div class="stat-number">99.2%</div>
+        <div class="stat-label">Scan Accuracy</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA Section -->
+  <section class="features-cta">
+    <div class="features-cta-card">
+      <h2>Ready to take your collection to the next level?</h2>
+      <p>Join 50,000 collectors already using DexVault. Free forever plan available.</p>
+      <a href="home.html" class="btn-white">Start Collecting Free &rarr;</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+              <rect width="28" height="28" rx="6" fill="#3B82F6"/>
+              <circle cx="14" cy="14" r="6" fill="white" opacity="0.9"/>
+              <circle cx="14" cy="14" r="3" fill="#3B82F6"/>
+            </svg>
+            <span>DexVault</span>
+          </div>
+          <p class="footer-tagline">The ultimate operating system for Pokémon card collectors.</p>
+        </div>
+        <div class="footer-links">
+          <div class="footer-col">
+            <h4>Product</h4>
+            <ul>
+              <li><a href="features.html">Features</a></li>
+              <li><a href="index.html#pricing">Pricing</a></li>
+              <li><a href="home.html">Scan</a></li>
+              <li><a href="marketplace.html">Marketplace</a></li>
+              <li><a href="features.html">Analytics</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Community</h4>
+            <ul>
+              <li><a href="#">Twitter</a></li>
+              <li><a href="blog.html">Blog</a></li>
+              <li><a href="showcase.html">Showcase</a></li>
+              <li><a href="events.html">Events</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Company</h4>
+            <ul>
+              <li><a href="about.html">About</a></li>
+              <li><a href="press.html">Press</a></li>
+              <li><a href="privacy.html">Privacy</a></li>
+              <li><a href="terms.html">Terms</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 DexVault. All rights reserved.</p>
+        <div class="footer-socials">
+          <a href="#">Twitter</a>
+          <a href="#">Instagram</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

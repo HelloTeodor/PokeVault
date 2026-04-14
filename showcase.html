@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DexVault - Showcase</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', sans-serif; color: #111827; background: #fff; }
+
+    /* ── Shared container ── */
+    .sc-container { max-width: 1100px; margin: 0 auto; }
+
+    /* ── Hero ── */
+    .sc-hero {
+      background: #F0F4FF;
+      padding: 64px 32px;
+      text-align: center;
+    }
+    .sc-hero h1 {
+      font-size: 2.75rem;
+      font-weight: 800;
+      color: #111827;
+      margin-bottom: 16px;
+      letter-spacing: -0.02em;
+    }
+    .sc-hero p {
+      font-size: 1.125rem;
+      color: #6B7280;
+      margin-bottom: 36px;
+      max-width: 520px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .sc-hero-btns {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .sc-btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #3B82F6;
+      color: #fff;
+      font-weight: 600;
+      font-size: 0.95rem;
+      padding: 12px 24px;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: background 0.18s;
+    }
+    .sc-btn-primary:hover { background: #2563EB; }
+    .sc-btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #fff;
+      color: #374151;
+      font-weight: 600;
+      font-size: 0.95rem;
+      padding: 12px 24px;
+      border-radius: 10px;
+      border: 1.5px solid #D1D5DB;
+      text-decoration: none;
+      transition: border-color 0.18s, background 0.18s;
+    }
+    .sc-btn-secondary:hover { border-color: #9CA3AF; background: #F9FAFB; }
+
+    /* ── Filter bar ── */
+    .sc-filterbar {
+      background: #fff;
+      border-bottom: 1px solid #E5E7EB;
+      padding: 24px 32px;
+      position: sticky;
+      top: 64px;
+      z-index: 90;
+    }
+    .sc-filterbar-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .sc-count {
+      font-size: 0.9rem;
+      color: #6B7280;
+      font-weight: 500;
+    }
+    .sc-filter-right {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .sc-sort-select {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: #374151;
+      background: #fff;
+      border: 1.5px solid #D1D5DB;
+      border-radius: 8px;
+      padding: 8px 14px;
+      cursor: pointer;
+      appearance: none;
+      -webkit-appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L6 6L11 1' stroke='%236B7280' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 10px center;
+      padding-right: 30px;
+    }
+    .sc-pills {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+    .sc-pill {
+      font-size: 0.8rem;
+      font-weight: 500;
+      padding: 6px 14px;
+      border-radius: 20px;
+      border: 1.5px solid #E5E7EB;
+      background: #fff;
+      color: #6B7280;
+      cursor: pointer;
+      transition: all 0.15s;
+      white-space: nowrap;
+    }
+    .sc-pill:hover { border-color: #3B82F6; color: #3B82F6; }
+    .sc-pill.active {
+      background: #3B82F6;
+      border-color: #3B82F6;
+      color: #fff;
+    }
+
+    /* ── Featured Collector ── */
+    .sc-featured-section {
+      padding: 48px 32px;
+    }
+    .sc-featured-section .sc-container { /* inherits max-width */ }
+    .sc-featured-label {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: #F59E0B;
+      margin-bottom: 20px;
+      display: block;
+      letter-spacing: 0.01em;
+    }
+    .sc-featured-card {
+      background: #fff;
+      border: 1.5px solid #E5E7EB;
+      border-radius: 20px;
+      padding: 40px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+    .sc-feat-left { display: flex; flex-direction: column; gap: 20px; }
+    .sc-feat-avatar-row { display: flex; align-items: center; gap: 16px; }
+    .sc-avatar {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: #3B82F6;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #fff;
+      flex-shrink: 0;
+    }
+    .sc-feat-name-block h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #111827;
+      margin-bottom: 4px;
+    }
+    .sc-feat-handle {
+      font-size: 0.9rem;
+      color: #9CA3AF;
+      font-weight: 500;
+    }
+    .sc-feat-bio {
+      font-size: 0.95rem;
+      color: #4B5563;
+      line-height: 1.6;
+    }
+    .sc-feat-stats {
+      display: flex;
+      gap: 0;
+      background: #F8F9FB;
+      border-radius: 12px;
+      border: 1px solid #E5E7EB;
+      overflow: hidden;
+    }
+    .sc-feat-stat {
+      flex: 1;
+      padding: 14px 12px;
+      text-align: center;
+      border-right: 1px solid #E5E7EB;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #374151;
+      line-height: 1.4;
+    }
+    .sc-feat-stat:last-child { border-right: none; }
+    .sc-feat-stat span {
+      display: block;
+      font-size: 0.7rem;
+      font-weight: 500;
+      color: #9CA3AF;
+      margin-top: 2px;
+    }
+
+    /* Featured mini card grid */
+    .sc-feat-right { }
+    .sc-mini-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+    .sc-mini-card {
+      border-radius: 10px;
+      height: 110px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: flex-end;
+      padding: 8px;
+    }
+    .sc-mini-card-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: rgba(255,255,255,0.92);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+    }
+    .sc-mini-charizard { background: linear-gradient(135deg, #FF6B35 0%, #F7941D 50%, #FFD700 100%); }
+    .sc-mini-mewtwo   { background: linear-gradient(135deg, #7C3AED 0%, #A855F7 50%, #EC4899 100%); }
+    .sc-mini-blastoise{ background: linear-gradient(135deg, #1D4ED8 0%, #3B82F6 50%, #38BDF8 100%); }
+    .sc-mini-pikachu  { background: linear-gradient(135deg, #F59E0B 0%, #FCD34D 50%, #FEF3C7 100%); }
+    .sc-mini-gengar   { background: linear-gradient(135deg, #4C1D95 0%, #7C3AED 50%, #8B5CF6 100%); }
+    .sc-mini-venusaur { background: linear-gradient(135deg, #065F46 0%, #10B981 50%, #6EE7B7 100%); }
+
+    /* ── Collections Grid ── */
+    .sc-grid-section {
+      padding: 0 32px 48px;
+    }
+    .sc-grid {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .sc-card {
+      border: 1.5px solid #E5E7EB;
+      border-radius: 16px;
+      background: #fff;
+      overflow: hidden;
+      transition: box-shadow 0.18s, transform 0.18s;
+      cursor: pointer;
+    }
+    .sc-card:hover {
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+      transform: translateY(-2px);
+    }
+    .sc-card-top {
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .sc-avatar-sm {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #fff;
+      flex-shrink: 0;
+    }
+    .sc-card-name { font-size: 0.95rem; font-weight: 700; color: #111827; }
+    .sc-card-handle { font-size: 0.8rem; color: #9CA3AF; font-weight: 500; margin-top: 2px; }
+    .sc-card-strip {
+      display: flex;
+      height: 60px;
+    }
+    .sc-strip-block {
+      flex: 1;
+    }
+    .sc-card-stats {
+      padding: 14px 20px;
+      background: #F8F9FB;
+      border-top: 1px solid #E5E7EB;
+      font-size: 0.8rem;
+      color: #6B7280;
+      font-weight: 500;
+    }
+
+    /* Avatar color helpers */
+    .av-blue    { background: #3B82F6; }
+    .av-purple  { background: #7C3AED; }
+    .av-orange  { background: #F97316; }
+    .av-teal    { background: #0D9488; }
+    .av-green   { background: #16A34A; }
+    .av-red     { background: #DC2626; }
+    .av-indigo  { background: #4F46E5; }
+    .av-yellow  { background: #D97706; }
+
+    /* Strip gradients */
+    .strip-pikachu    { background: linear-gradient(180deg, #F59E0B, #FCD34D); }
+    .strip-electric   { background: linear-gradient(180deg, #FCD34D, #FEF3C7); }
+    .strip-yellow     { background: linear-gradient(180deg, #FDE68A, #FEF9C3); }
+    .strip-mewtwo     { background: linear-gradient(180deg, #7C3AED, #A855F7); }
+    .strip-blastoise  { background: linear-gradient(180deg, #1D4ED8, #3B82F6); }
+    .strip-gengar     { background: linear-gradient(180deg, #4C1D95, #7C3AED); }
+    .strip-dragonite  { background: linear-gradient(180deg, #F97316, #FB923C); }
+    .strip-gyarados   { background: linear-gradient(180deg, #2563EB, #60A5FA); }
+    .strip-zapdos     { background: linear-gradient(180deg, #CA8A04, #FDE047); }
+    .strip-blue1      { background: linear-gradient(180deg, #1D4ED8, #60A5FA); }
+    .strip-blue2      { background: linear-gradient(180deg, #2563EB, #93C5FD); }
+    .strip-bluegr     { background: linear-gradient(180deg, #38BDF8, #BAE6FD); }
+    .strip-venusaur   { background: linear-gradient(180deg, #065F46, #10B981); }
+    .strip-green1     { background: linear-gradient(180deg, #16A34A, #4ADE80); }
+    .strip-grass      { background: linear-gradient(180deg, #15803D, #86EFAC); }
+    .strip-charizard  { background: linear-gradient(180deg, #DC2626, #F97316); }
+    .strip-ninetales  { background: linear-gradient(180deg, #F97316, #FDBA74); }
+    .strip-fire       { background: linear-gradient(180deg, #EF4444, #FCA5A5); }
+    .strip-alakazam   { background: linear-gradient(180deg, #4F46E5, #818CF8); }
+    .strip-purple1    { background: linear-gradient(180deg, #6D28D9, #A78BFA); }
+    .strip-psychic    { background: linear-gradient(180deg, #9333EA, #C084FC); }
+    .strip-char2      { background: linear-gradient(180deg, #B91C1C, #EF4444); }
+    .strip-pika2      { background: linear-gradient(180deg, #D97706, #FCD34D); }
+    .strip-venu2      { background: linear-gradient(180deg, #166534, #22C55E); }
+
+    /* ── CTA Banner ── */
+    .sc-cta {
+      margin: 0 32px 64px;
+    }
+    .sc-cta-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      background: linear-gradient(135deg, #1D4ED8 0%, #3B82F6 50%, #60A5FA 100%);
+      border-radius: 20px;
+      padding: 64px 32px;
+      text-align: center;
+    }
+    .sc-cta-inner h2 {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 14px;
+      letter-spacing: -0.01em;
+    }
+    .sc-cta-inner p {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.85);
+      margin-bottom: 32px;
+    }
+    .sc-btn-white {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #fff;
+      color: #1D4ED8;
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 14px 28px;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: background 0.18s;
+    }
+    .sc-btn-white:hover { background: #EFF6FF; }
+
+    /* ── Responsive ── */
+    @media (max-width: 900px) {
+      .sc-grid { grid-template-columns: repeat(2, 1fr); }
+      .sc-featured-card { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 600px) {
+      .sc-grid { grid-template-columns: 1fr; }
+      .sc-hero h1 { font-size: 2rem; }
+      .sc-cta { margin: 0 16px 48px; }
+      .sc-featured-section, .sc-grid-section { padding-left: 16px; padding-right: 16px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <div class="logo-icon"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect width="28" height="28" rx="6" fill="#3B82F6"/><circle cx="14" cy="14" r="6" fill="white" opacity="0.9"/><circle cx="14" cy="14" r="3" fill="#3B82F6"/></svg></div>
+        <span class="logo-text">DexVault</span>
+      </a>
+      <div class="nav-links">
+        <a href="features.html">Features</a>
+        <a href="index.html#pricing">Pricing</a>
+        <a href="index.html#community">Community</a>
+      </div>
+      <div class="nav-right">
+        <a href="home.html" class="nav-login">Log In</a>
+        <a href="home.html" class="nav-signup">Sign Up <span>&rarr;</span></a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 1. Hero -->
+  <section class="sc-hero">
+    <div class="sc-container">
+      <h1>Collector Showcase</h1>
+      <p>Meet the DexVault community. Real collectors, real collections, real stories.</p>
+      <div class="sc-hero-btns">
+        <a href="home.html" class="sc-btn-primary">Share Your Collection</a>
+        <a href="#collections" class="sc-btn-secondary">Browse All</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. Filter Bar -->
+  <div class="sc-filterbar">
+    <div class="sc-filterbar-inner">
+      <span class="sc-count">Showing 2,847 collections</span>
+      <div class="sc-filter-right">
+        <select class="sc-sort-select">
+          <option>Sort: Most Valuable ▾</option>
+          <option>Sort: Most Cards</option>
+          <option>Sort: Most Sets</option>
+          <option>Sort: Newest</option>
+        </select>
+        <div class="sc-pills">
+          <button class="sc-pill active">All</button>
+          <button class="sc-pill">Base Set</button>
+          <button class="sc-pill">Vintage</button>
+          <button class="sc-pill">Modern</button>
+          <button class="sc-pill">Full Sets</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. Featured Collector -->
+  <section class="sc-featured-section">
+    <div class="sc-container">
+      <span class="sc-featured-label">⭐ Featured Collector of the Month</span>
+      <div class="sc-featured-card">
+
+        <!-- Left: collector info -->
+        <div class="sc-feat-left">
+          <div class="sc-feat-avatar-row">
+            <div class="sc-avatar">TA</div>
+            <div class="sc-feat-name-block">
+              <h2>TrainerAsh92</h2>
+              <div class="sc-feat-handle">@trainerash92</div>
+            </div>
+          </div>
+          <p class="sc-feat-bio">Collecting since 1999. Specializing in Base Set holos and 1st edition cards. PSA submission veteran.</p>
+          <div class="sc-feat-stats">
+            <div class="sc-feat-stat">347<span>Cards</span></div>
+            <div class="sc-feat-stat">$12,847<span>Value</span></div>
+            <div class="sc-feat-stat">28<span>Graded</span></div>
+            <div class="sc-feat-stat">4<span>Full Sets</span></div>
+          </div>
+        </div>
+
+        <!-- Right: mini card grid -->
+        <div class="sc-feat-right">
+          <div class="sc-mini-grid">
+            <div class="sc-mini-card sc-mini-charizard">
+              <span class="sc-mini-card-label">Charizard</span>
+            </div>
+            <div class="sc-mini-card sc-mini-mewtwo">
+              <span class="sc-mini-card-label">Mewtwo</span>
+            </div>
+            <div class="sc-mini-card sc-mini-blastoise">
+              <span class="sc-mini-card-label">Blastoise</span>
+            </div>
+            <div class="sc-mini-card sc-mini-pikachu">
+              <span class="sc-mini-card-label">Pikachu</span>
+            </div>
+            <div class="sc-mini-card sc-mini-gengar">
+              <span class="sc-mini-card-label">Gengar</span>
+            </div>
+            <div class="sc-mini-card sc-mini-venusaur">
+              <span class="sc-mini-card-label">Venusaur</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Collections Grid -->
+  <section class="sc-grid-section" id="collections">
+    <div class="sc-grid">
+
+      <!-- 1. PikaCollector -->
+      <div class="sc-card">
+        <div class="sc-card-top">
+          <div class="sc-avatar-sm av-yellow">PC</div>
+          <div>
+            <div class="sc-card-name">PikaCollector</div>
+            <div class="sc-card-handle">@pikacollector</div>
+          </div>
+        </div>
+        <div class="sc-card-strip">
+          <div class="sc-strip-block strip-pikachu"></div>
+          <div class="sc-strip-block strip-electric"></div>
+          <div class="sc-strip-block strip-yellow"></div>
+        </div>
+        <div class="sc-card-stats">212 cards · $8,420 · 3 sets complete</div>
+      </div>
+
+      <!-- 2. ShinyHunter -->
+      <div class="sc-card">
+        <div class="sc-card-top">
+          <div class="sc-avatar-sm av-purple">SH</div>
+          <div>
+            <div class="sc-card-name">ShinyHunter</div>
+            <div class="sc-card-handle">@shinyhunter</div>
+          </div>
+        </div>
+        <div class="sc-card-strip">
+          <div class="sc-strip-block strip-mewtwo"></div>
+          <div class="sc-strip-block strip-blastoise"></div>
+          <div class="sc-strip-block strip-gengar"></div>
+        </div>
+        <div class="sc-card-stats">489 cards · $24,800 · 7 sets complete</div>
+      </div>
+
+      <!-- 3. DragonMaster -->
+      <div class="sc-card">
+        <div class="sc-card-top">
+          <div class="sc-avatar-sm av-orange">DM</div>
+          <div>
+            <div class="sc-card-name">DragonMaster</div>
+            <div class="sc-card-handle">@dragonmaster</div>
+          </div>
+        </div>
+        <div class="sc-card-strip">
+          <div class="sc-strip-block strip-dragonite"></div>
+          <div class="sc-strip-block strip-gyarados"></div>
+          <div class="sc-strip-block strip-zapdos"></div>
+        </div>
+        <div class="sc-card-stats">156 cards · $6,200 · 2 sets complete</div>
+      </div>
+
+      <!-- 4. MistyFan -->
+      <div class="sc-card">
+        <div class="sc-card-top">
+          <div class="sc-avatar-sm av-blue">MF</div>
+          <div>
+            <div class="sc-card-name">MistyFan</div>
+            <div class="sc-card-handle">@mistyfan</div>
+          </div>
+        </div>
+        <div class="sc-card-strip">
+          <div class="sc-strip-block strip-blastoise"></div>
+          <div class="sc-strip-block strip-gyarados"></div>
+          <div class="sc-strip-block strip-bluegr"></div>
+        </div>
+        <div class="sc-card-stats">324 cards · $11,340 · 5 sets complete</div>
+      </div>
+
+      <!-- 5. GreenThumb -->
+      <div class="sc-card">
+        <div class="sc-card-top">
+          <div class="sc-avatar-sm av-green">GT</div>
+          <div>
+            <div class="sc-card-name">GreenThumb</div>
+            <div class="sc-card-handle">@greenthumb</div>
+          </div>
+        </div>
+        <div class="sc-card-strip">
+          <div class="sc-strip-block strip-venusaur"></div>
+          <div class="sc-strip-block strip-green1"></div>
+          <div class="sc-strip-block strip-grass"></div>
+        </div>
+        <div class="sc-card-stats">201 cards · $5,890 · 3 sets complete</div>
+      </div>
+
+      <!-- 6. FlameKeeper -->
+      <div class="sc-card">
+        <div class="sc-card-top">
+          <div class="sc-avatar-sm av-red">FK</div>
+          <div>
+            <div class="sc-card-name">FlameKeeper</div>
+            <div class="sc-card-handle">@flamekeeper</div>
+          </div>
+        </div>
+        <div class="sc-card-strip">
+          <div class="sc-strip-block strip-charizard"></div>
+          <div class="sc-strip-block strip-ninetales"></div>
+          <div class="sc-strip-block strip-fire"></div>
+        </div>
+        <div class="sc-card-stats">678 cards · $31,200 · 9 sets complete</div>
+      </div>
+
+      <!-- 7. PsychicPro -->
+      <div class="sc-card">
+        <div class="sc-card-top">
+          <div class="sc-avatar-sm av-indigo">PP</div>
+          <div>
+            <div class="sc-card-name">PsychicPro</div>
+            <div class="sc-card-handle">@psychicpro</div>
+          </div>
+        </div>
+        <div class="sc-card-strip">
+          <div class="sc-strip-block strip-mewtwo"></div>
+          <div class="sc-strip-block strip-alakazam"></div>
+          <div class="sc-strip-block strip-psychic"></div>
+        </div>
+        <div class="sc-card-stats">143 cards · $9,750 · 2 sets complete</div>
+      </div>
+
+      <!-- 8. TrainerRed -->
+      <div class="sc-card">
+        <div class="sc-card-top">
+          <div class="sc-avatar-sm av-red">TR</div>
+          <div>
+            <div class="sc-card-name">TrainerRed</div>
+            <div class="sc-card-handle">@trainerred</div>
+          </div>
+        </div>
+        <div class="sc-card-strip">
+          <div class="sc-strip-block strip-char2"></div>
+          <div class="sc-strip-block strip-pika2"></div>
+          <div class="sc-strip-block strip-venu2"></div>
+        </div>
+        <div class="sc-card-stats">892 cards · $45,600 · 12 sets complete</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 5. CTA -->
+  <div class="sc-cta">
+    <div class="sc-cta-inner">
+      <h2>Ready to show off your collection?</h2>
+      <p>Join DexVault and your collection could be featured here.</p>
+      <a href="home.html" class="sc-btn-white">Get Started Free &rarr;</a>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+              <rect width="28" height="28" rx="6" fill="#3B82F6"/>
+              <circle cx="14" cy="14" r="6" fill="white" opacity="0.9"/>
+              <circle cx="14" cy="14" r="3" fill="#3B82F6"/>
+            </svg>
+            <span>DexVault</span>
+          </div>
+          <p class="footer-tagline">The ultimate operating system for Pokémon card collectors.</p>
+        </div>
+        <div class="footer-links">
+          <div class="footer-col">
+            <h4>Product</h4>
+            <ul>
+              <li><a href="#">Features</a></li>
+              <li><a href="#">Pricing</a></li>
+              <li><a href="#">Scan</a></li>
+              <li><a href="#">Marketplace</a></li>
+              <li><a href="#">Analytics</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Community</h4>
+            <ul>
+              <li><a href="#">Twitter</a></li>
+              <li><a href="#">Blog</a></li>
+              <li><a href="showcase.html">Showcase</a></li>
+              <li><a href="#">Events</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Company</h4>
+            <ul>
+              <li><a href="#">About</a></li>
+              <li><a href="#">Press</a></li>
+              <li><a href="#">Privacy</a></li>
+              <li><a href="#">Terms</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 DexVault. All rights reserved.</p>
+        <div class="footer-socials">
+          <a href="#">Twitter</a>
+          <a href="#">Instagram</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

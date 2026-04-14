@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DexVault - Blog</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    .blog-content {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    /* Hero */
+    .blog-hero {
+      background: #F8F9FB;
+      padding: 60px 32px;
+      text-align: center;
+    }
+    .blog-hero h1 {
+      font-size: 42px;
+      font-weight: 800;
+      color: #111827;
+      margin: 0 0 12px;
+    }
+    .blog-hero p {
+      font-size: 18px;
+      color: #6B7280;
+      margin: 0;
+    }
+    .blog-filter-pills {
+      display: inline-flex;
+      gap: 8px;
+      margin-top: 24px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .pill {
+      padding: 8px 18px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      border: 1.5px solid #E5E7EB;
+      background: white;
+      color: #374151;
+      transition: all 0.15s;
+    }
+    .pill:hover {
+      border-color: #3B82F6;
+      color: #3B82F6;
+    }
+    .pill.active {
+      background: #3B82F6;
+      border-color: #3B82F6;
+      color: white;
+    }
+
+    /* Category badges */
+    .cat-badge {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+    }
+    .cat-blue   { background: #EFF6FF; color: #3B82F6; }
+    .cat-orange { background: #FFF7ED; color: #EA580C; }
+    .cat-green  { background: #F0FDF4; color: #16A34A; }
+    .cat-purple { background: #F5F3FF; color: #7C3AED; }
+    .cat-amber  { background: #FFFBEB; color: #D97706; }
+    .cat-red    { background: #FEF2F2; color: #DC2626; }
+    .cat-cyan   { background: #ECFEFF; color: #0891B2; }
+
+    /* Featured post */
+    .featured-section {
+      background: white;
+      padding: 48px 0;
+    }
+    .featured-card {
+      border: 1.5px solid #E5E7EB;
+      border-radius: 16px;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+    .featured-image {
+      background: linear-gradient(135deg, #3B82F6, #8B5CF6);
+      height: 300px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .featured-label {
+      background: rgba(255,255,255,0.2);
+      border: 1.5px solid rgba(255,255,255,0.5);
+      color: white;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      padding: 8px 20px;
+      border-radius: 999px;
+    }
+    .featured-body {
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 16px;
+    }
+    .featured-body h2 {
+      font-size: 24px;
+      font-weight: 800;
+      color: #111827;
+      margin: 0;
+      line-height: 1.3;
+    }
+    .featured-body > p {
+      font-size: 15px;
+      color: #6B7280;
+      margin: 0;
+      line-height: 1.6;
+    }
+    .author-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .author-avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: #3B82F6;
+      color: white;
+      font-size: 11px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .author-meta {
+      font-size: 13px;
+      color: #6B7280;
+    }
+    .read-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      color: #3B82F6;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      margin-top: 4px;
+    }
+    .read-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Blog grid */
+    .blog-grid-section {
+      padding: 48px 0;
+    }
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .post-card {
+      border: 1.5px solid #E5E7EB;
+      border-radius: 12px;
+      overflow: hidden;
+      background: white;
+      transition: box-shadow 0.15s, transform 0.15s;
+    }
+    .post-card:hover {
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+      transform: translateY(-2px);
+    }
+    .post-cover {
+      height: 180px;
+    }
+    .post-body {
+      padding: 20px;
+    }
+    .post-body h3 {
+      font-size: 16px;
+      font-weight: 700;
+      color: #111827;
+      margin: 8px 0;
+      line-height: 1.4;
+    }
+    .post-excerpt {
+      font-size: 13px;
+      color: #6B7280;
+      margin: 0 0 12px;
+      line-height: 1.5;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .post-meta {
+      font-size: 12px;
+      color: #9CA3AF;
+    }
+
+    /* Newsletter */
+    .newsletter-section {
+      padding: 0 0 72px;
+    }
+    .newsletter-box {
+      background: #EFF6FF;
+      border-radius: 16px;
+      padding: 48px;
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .newsletter-box h3 {
+      font-size: 24px;
+      font-weight: 800;
+      color: #111827;
+      margin: 0 0 10px;
+    }
+    .newsletter-box > p {
+      font-size: 15px;
+      color: #6B7280;
+      margin: 0 0 28px;
+    }
+    .newsletter-form {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .newsletter-input {
+      border: 1.5px solid #D1D5DB;
+      border-radius: 8px;
+      padding: 12px 16px;
+      width: 260px;
+      font-size: 14px;
+      font-family: inherit;
+      color: #111827;
+      outline: none;
+      transition: border-color 0.15s;
+    }
+    .newsletter-input:focus {
+      border-color: #3B82F6;
+    }
+    .newsletter-input::placeholder {
+      color: #9CA3AF;
+    }
+    .btn-subscribe {
+      background: #3B82F6;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 12px 24px;
+      font-size: 14px;
+      font-weight: 600;
+      font-family: inherit;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    .btn-subscribe:hover {
+      background: #2563EB;
+    }
+
+    @media (max-width: 768px) {
+      .featured-card {
+        grid-template-columns: 1fr;
+      }
+      .featured-image {
+        height: 200px;
+      }
+      .featured-body {
+        padding: 28px;
+      }
+      .blog-grid {
+        grid-template-columns: 1fr;
+      }
+      .blog-hero h1 {
+        font-size: 30px;
+      }
+      .newsletter-box {
+        padding: 32px 20px;
+      }
+      .newsletter-input {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <div class="logo-icon"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect width="28" height="28" rx="6" fill="#3B82F6"/><circle cx="14" cy="14" r="6" fill="white" opacity="0.9"/><circle cx="14" cy="14" r="3" fill="#3B82F6"/></svg></div>
+        <span class="logo-text">DexVault</span>
+      </a>
+      <div class="nav-links">
+        <a href="features.html">Features</a>
+        <a href="index.html#pricing">Pricing</a>
+        <a href="index.html#community">Community</a>
+      </div>
+      <div class="nav-right">
+        <a href="home.html" class="nav-login">Log In</a>
+        <a href="home.html" class="nav-signup">Sign Up <span>&rarr;</span></a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 1. Hero -->
+  <section class="blog-hero">
+    <div class="blog-content">
+      <h1>The DexVault Blog</h1>
+      <p>News, guides, and insights for serious Pokémon card collectors.</p>
+      <div class="blog-filter-pills">
+        <button class="pill active">All</button>
+        <button class="pill">Guides</button>
+        <button class="pill">Market News</button>
+        <button class="pill">Features</button>
+        <button class="pill">Community</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. Featured Post -->
+  <section class="featured-section">
+    <div class="blog-content">
+      <div class="featured-card">
+        <div class="featured-image">
+          <span class="featured-label">FEATURED</span>
+        </div>
+        <div class="featured-body">
+          <span class="cat-badge cat-blue">Market News</span>
+          <h2>Why Charizard Base Set Prices Are Surging in 2026</h2>
+          <p>We dive deep into the data behind the 40% price increase over the last 6 months, and what it means for collectors.</p>
+          <div class="author-row">
+            <div class="author-avatar">AK</div>
+            <span class="author-meta">Alex Kim &middot; April 10, 2026 &middot; 8 min read</span>
+          </div>
+          <a href="#" class="read-link">Read Article &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Blog Grid -->
+  <section class="blog-grid-section">
+    <div class="blog-content">
+      <div class="blog-grid">
+
+        <!-- Post 1 -->
+        <div class="post-card">
+          <div class="post-cover" style="background: linear-gradient(135deg,#FF6B35,#CC2200);"></div>
+          <div class="post-body">
+            <span class="cat-badge cat-orange">Guides</span>
+            <h3>How to Grade Your Cards Before Sending to PSA</h3>
+            <p class="post-excerpt">Learn the 10-point checklist pros use to predict their grade before submission.</p>
+            <div class="post-meta">Maria Santos &middot; Apr 7, 2026</div>
+          </div>
+        </div>
+
+        <!-- Post 2 -->
+        <div class="post-card">
+          <div class="post-cover" style="background: linear-gradient(135deg,#22C55E,#15803D);"></div>
+          <div class="post-body">
+            <span class="cat-badge cat-green">Guides</span>
+            <h3>Building a Base Set Collection on a Budget</h3>
+            <p class="post-excerpt">You don't need $10,000 to start. Here's how to complete Base Set strategically.</p>
+            <div class="post-meta">Jake Williams &middot; Apr 5, 2026</div>
+          </div>
+        </div>
+
+        <!-- Post 3 -->
+        <div class="post-card">
+          <div class="post-cover" style="background: linear-gradient(135deg,#8B5CF6,#6D28D9);"></div>
+          <div class="post-body">
+            <span class="cat-badge cat-purple">Features</span>
+            <h3>Introducing AI-Powered Condition Grading</h3>
+            <p class="post-excerpt">Our new model can now estimate PSA grade with 94% accuracy from a single photo.</p>
+            <div class="post-meta">DexVault Team &middot; Apr 2, 2026</div>
+          </div>
+        </div>
+
+        <!-- Post 4 -->
+        <div class="post-card">
+          <div class="post-cover" style="background: linear-gradient(135deg,#F59E0B,#D97706);"></div>
+          <div class="post-body">
+            <span class="cat-badge cat-amber">Market News</span>
+            <h3>Neo Genesis Prices: What's Driving the Rally?</h3>
+            <p class="post-excerpt">Lugia and Espeon continue to break records. We analyze the trend.</p>
+            <div class="post-meta">Alex Kim &middot; Mar 28, 2026</div>
+          </div>
+        </div>
+
+        <!-- Post 5 -->
+        <div class="post-card">
+          <div class="post-cover" style="background: linear-gradient(135deg,#EF4444,#B91C1C);"></div>
+          <div class="post-body">
+            <span class="cat-badge cat-red">Community</span>
+            <h3>Collector Spotlight: ShinyHunter's 500-Card Holo Collection</h3>
+            <p class="post-excerpt">We sat down with one of DexVault's most active members to talk strategy.</p>
+            <div class="post-meta">Community Team &middot; Mar 25, 2026</div>
+          </div>
+        </div>
+
+        <!-- Post 6 -->
+        <div class="post-card">
+          <div class="post-cover" style="background: linear-gradient(135deg,#06B6D4,#0E7490);"></div>
+          <div class="post-body">
+            <span class="cat-badge cat-cyan">Guides</span>
+            <h3>PSA vs BGS vs CGC: Which Grading Service is Right for You?</h3>
+            <p class="post-excerpt">A complete comparison of the three major grading services for 2026.</p>
+            <div class="post-meta">Maria Santos &middot; Mar 20, 2026</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Newsletter Signup -->
+  <section class="newsletter-section">
+    <div class="blog-content">
+      <div class="newsletter-box">
+        <h3>Get the weekly market digest</h3>
+        <p>Every Monday: top movers, new releases, and collector tips.</p>
+        <div class="newsletter-form">
+          <input class="newsletter-input" type="email" placeholder="you@example.com">
+          <button class="btn-subscribe">Subscribe</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+              <rect width="28" height="28" rx="6" fill="#3B82F6"/>
+              <circle cx="14" cy="14" r="6" fill="white" opacity="0.9"/>
+              <circle cx="14" cy="14" r="3" fill="#3B82F6"/>
+            </svg>
+            <span>DexVault</span>
+          </div>
+          <p class="footer-tagline">The ultimate operating system for Pokémon card collectors.</p>
+        </div>
+        <div class="footer-links">
+          <div class="footer-col">
+            <h4>Product</h4>
+            <ul>
+              <li><a href="#">Features</a></li>
+              <li><a href="#">Pricing</a></li>
+              <li><a href="#">Scan</a></li>
+              <li><a href="#">Marketplace</a></li>
+              <li><a href="#">Analytics</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Community</h4>
+            <ul>
+              <li><a href="#">Twitter</a></li>
+              <li><a href="blog.html">Blog</a></li>
+              <li><a href="#">Showcase</a></li>
+              <li><a href="#">Events</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Company</h4>
+            <ul>
+              <li><a href="#">About</a></li>
+              <li><a href="#">Press</a></li>
+              <li><a href="#">Privacy</a></li>
+              <li><a href="#">Terms</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 DexVault. All rights reserved.</p>
+        <div class="footer-socials">
+          <a href="#">Twitter</a>
+          <a href="#">Instagram</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
